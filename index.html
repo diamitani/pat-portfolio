@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Patrick Diamitani — Production AI builder, author of the ROSTR multi-agent framework. Enterprise AI, agent skills, products, and civic work.">
+<title>Patrick Diamitani — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,9,12,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; transition: opacity .15s; }
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; background: radial-gradient(140% 100% at 50% 0%, #1b1938 0%, #0f0d1f 40%, #08090c 100%); position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: -30%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(167,139,250,0.15), rgba(6,182,212,0.03) 60%); filter: blur(80px); pointer-events: none; }
+.hero-inner { max-width: 720px; text-align: center; position: relative; z-index: 2; padding: 2rem; }
+.hero-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); margin-bottom: 1.5rem; font-weight: 600; }
+.hero h1 { font-size: clamp(36px, 6vw, 64px); line-height: 0.96; font-weight: 540; letter-spacing: -1px; margin-bottom: 1rem; color: #fff; }
+.hero h1 .accent { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-tag { font-size: 17px; color: rgba(255,255,255,0.75); font-weight: 400; max-width: 520px; margin: 0 auto 2rem; line-height: 1.5; }
+.hero-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+.hero-chips span { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 460; }
+.hero-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero-links a { padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .15s; }
+.btn-primary { background: var(--cream); color: var(--ink); }
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-ghost { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.4); }
+
+/* SECTIONS */
+.section { padding: 100px 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+.section h2 { font-size: 36px; font-weight: 540; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 1rem; }
+.section p.subtitle { font-size: 16px; color: var(--muted); max-width: 600px; margin-bottom: 3rem; line-height: 1.5; }
+
+/* METRICS */
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin-bottom: 4rem; }
+.metric { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+.metric-n { font-size: 28px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+.metric-l { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* VIDEO */
+.video-section { padding: 80px 2rem; background: #000; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.video-wrap { max-width: 1200px; margin: 0 auto; }
+.video-wrap video { width: 100%; border-radius: 8px; display: block; }
+.video-caption { text-align: center; font-size: 13px; color: var(--muted); margin-top: 1rem; }
+
+/* ROSTR — THE CENTERPIECE */
+.rostr-section { padding: 100px 2rem; background: linear-gradient(180deg, rgba(27,25,56,0.6) 0%, var(--bg) 100%); border-top: 1px solid rgba(167,139,250,0.15); }
+.rostr-inner { max-width: 1100px; margin: 0 auto; }
+.rostr-header { margin-bottom: 3rem; }
+.rostr-header .section-label { color: var(--accent2); }
+.rostr-header h2 { font-size: 42px; font-weight: 540; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 1rem; }
+.rostr-header .subtitle { font-size: 17px; color: var(--muted); max-width: 700px; line-height: 1.6; margin-bottom: 1.5rem; }
+.rostr-doi { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid rgba(167,139,250,0.25); border-radius: 8px; padding: 8px 16px; font-family: var(--mono); font-size: 11px; color: var(--accent2); text-decoration: none; margin-bottom: 2rem; }
+.rostr-doi:hover { border-color: var(--accent); }
+
+.rostr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 2rem; }
+.rostr-comp { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: border-color .2s; }
+.rostr-comp:hover { border-color: rgba(167,139,250,0.3); }
+.rostr-comp-num { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; }
+.rostr-comp h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.3px; }
+.rostr-comp .comp-full { font-size: 15px; color: var(--dim); font-weight: 600; margin-bottom: 6px; }
+.rostr-comp p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+.rostr-phase { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+.rostr-phase h3 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+.phase-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; }
+.phase-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+.phase-num { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+.phase-name { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.phase-desc { font-size: 11px; color: var(--dim); line-height: 1.4; }
+
+.rostr-proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 12px; margin-top: 2rem; }
+.proof-card { background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(6,182,212,0.03)); border: 1px solid rgba(167,139,250,0.15); border-radius: 12px; padding: 20px; }
+.proof-card .icon { font-size: 20px; margin-bottom: 8px; }
+.proof-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.proof-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CARDS */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: all .2s; text-decoration: none; color: inherit; display: block; }
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card-tag { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); font-weight: 700; margin-bottom: 6px; }
+.card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
+.card p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+.card-stack { font-size: 11px; color: var(--dim); }
+
+/* SKILLS GRID */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.skill-name { font-size: 13px; font-weight: 600; font-family: var(--mono); color: var(--text); }
+.skill-desc { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* PRODUCTS */
+.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.product { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all .2s; }
+.product:hover { border-color: var(--accent2); }
+.product-icon { font-size: 24px; margin-bottom: 12px; }
+.product h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.product p { font-size: 13px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+.product-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+.product-link:hover { text-decoration: underline; }
+
+/* TECH STACK */
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 3rem; }
+.tech-cat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.tech-cat h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 10px; font-weight: 600; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tech-tag { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 11px; padding: 4px 10px; border-radius: 6px; font-family: var(--mono); }
+
+/* RESUME CTA */
+.resume-cta { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 40px; text-align: center; margin-top: 3rem; }
+.resume-cta h3 { font-size: 20px; font-weight: 540; margin-bottom: 8px; }
+.resume-cta p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+.resume-cta a { display: inline-block; padding: 10px 32px; border-radius: 8px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 600; transition: opacity .15s; }
+.resume-cta a:hover { opacity: 0.85; }
+
+/* BIO */
+.bio-section { padding: 100px 2rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.bio-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
+.bio-photo { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 72px; color: var(--dim); }
+.bio-content h2 { font-size: 32px; font-weight: 540; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+.bio-content p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.bio-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+.bio-detail { margin-bottom: 1.5rem; }
+.bio-detail dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 4px; }
+.bio-detail dd { font-size: 14px; color: var(--text); }
+
+/* FOOTER */
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); background: var(--bg); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .section { padding: 60px 1.25rem; }
+  .section h2, .rostr-header h2 { font-size: 26px; }
+  .rostr-grid { grid-template-columns: 1fr; }
+  .bio-inner { grid-template-columns: 1fr; gap: 32px; }
+  .bio-photo { max-width: 280px; margin: 0 auto; }
+  .nav-links { display: none; }
+  .cards, .skills-grid, .products { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">Patrick <span>Diamitani</span></a>
+    <div class="nav-links">
+      <a href="./" class="active">Work</a>
+      <a href="rostr.html">ROSTR</a>
+      <a href="case-studies.html">Studies</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="photography.html">Photos</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AI & Automation · GTM Systems Engineering</div>
+    <h1>I build <span class="accent">production AI</span><br>that ships.</h1>
+    <p class="hero-tag">
+      AI & Automation lead at Atlas HXM. I design, build, and harden the systems 
+      that let 50+ people run a global GTM org on AI — and I ship the frameworks 
+      that let others do the same.
+    </p>
+    <div class="hero-chips">
+      <span>Chicago, IL</span>
+      <span>n8n · Azure OpenAI · Claude SDK</span>
+      <span>ROSTR Framework Author</span>
+      <span>AWS Certified ×2</span>
+    </div>
+    <div class="hero-links">
+      <a href="#rostr" class="btn-primary">The framework</a>
+      <a href="#work" class="btn-ghost">See the work</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="video-wrap">
+    <video controls preload="metadata" style="width:100%;display:block;">
+      <source src="public/showcase.mp4" type="video/mp4">
+    </video>
+    <p class="video-caption">ROSTR in action — multi-agent architecture for production AI. <a href="rostr.html" style="color:var(--accent);">Explore the full framework →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════ ROSTR — THE CENTERPIECE ═══════════════ -->
+<section class="rostr-section" id="rostr">
+  <div class="rostr-inner">
+    <div class="rostr-header">
+      <div class="section-label">My contribution to AI</div>
+      <h2>The ROSTR Framework</h2>
+      <p class="subtitle">A unified architecture for production-grade multi-agent systems — published, cited, and running in production. Four components, a five-phase taxonomy, and a persistent knowledge architecture that powers agent systems at scale.</p>
+      <a href="https://zenodo.org/records/19550414" class="rostr-doi" target="_blank">📄 DOI: 10.5281/zenodo.19550414 ↗</a>
+    </div>
+
+    <div class="rostr-grid">
+      <div class="rostr-comp">
+        <div class="rostr-comp-num">Component 01</div>
+        <h3>PAL</h3>
+        <div class="comp-full">Prompt Abstraction Layer</div>
+        <p>The Intent Compiler that transforms loose natural language into strict agent runtime manifests. Five-stage pipeline: intent extraction → context injection → semantic enhancement → runtime compilation → output routing. Takes "improve the outreach workflow" and produces a fully-parameterized agent manifest with model, temperature, tool permissions, memory mode, and completion criteria. No more raw prompts — every agent invocation flows through compiled manifests.</p>
+      </div>
+      <div class="rostr-comp">
+        <div class="rostr-comp-num">Component 02</div>
+        <h3>RAG DAL</h3>
+        <div class="comp-full">Dynamic Acquisition Layer</div>
+        <p>Autonomous multi-pass retrieval with source credibility stratification. Three-tier architecture: Tier 1 (academic/authoritative, credibility 1.0), Tier 2 (editorial/verified, 0.75), Tier 3 (community/UGC, 0.40). Multi-pass algorithm: broad sweep → gap fill → deep verification. Confidence scoring formula weights source count, consistency, tier distribution, and recency. Knowledge is ingested, embedded, and compounded across sessions.</p>
+      </div>
+      <div class="rostr-comp">
+        <div class="rostr-comp-num">Component 03</div>
+        <h3>NPAO</h3>
+        <div class="comp-full">Navigate, Prioritize, Allocate, Orchestrate</div>
+        <p>A 5D phase taxonomy classifies every task: PreD (research), Design (architecture), Development (build), Deployment (ship), Debugging (fix). Four-dimensional priority scoring weights phase urgency, dependency impact, business impact, and resource efficiency. Agent allocation uses vector similarity + specialization overlap + load scoring. Orchestration patterns: sequential chains, parallel fan-outs, aggregation fan-ins, conditional branches.</p>
+      </div>
+      <div class="rostr-comp">
+        <div class="rostr-comp-num">Component 04</div>
+        <h3>Rostr Hub</h3>
+        <div class="comp-full">Agent Operating System</div>
+        <p>Persistent reference architecture with four-level state management: session (ephemeral), project (persistent — decisions, artifacts, learnings), organization (evolving — identity, ICP, positioning), agent (portable — skills, preferences, calibration). Knowledge compounds across sessions. The Hub provides scoped namespaces, hierarchical credibility, and cross-namespace permission gates. Agents don't restart from scratch — they load context from the Hub.</p>
+      </div>
+    </div>
+
+    <div class="rostr-phase">
+      <h3>5D Phase Taxonomy — Every task knows where it belongs</h3>
+      <div class="phase-list">
+        <div class="phase-item">
+          <div class="phase-num">P0</div>
+          <div class="phase-name">PreD</div>
+          <div class="phase-desc">Determine IF to build. Problem definition, competitive research, go/no-go.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">P1</div>
+          <div class="phase-name">Design</div>
+          <div class="phase-desc">Define WHAT to build. Architecture, data models, API contracts, tech choices.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">P2</div>
+          <div class="phase-name">Development</div>
+          <div class="phase-desc">Build it. Implementation, testing, code review, documentation.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">P3</div>
+          <div class="phase-name">Deployment</div>
+          <div class="phase-desc">Ship it safely. Staging QA, canary deploys, monitoring, rollback procedures.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">P4</div>
+          <div class="phase-name">Debugging</div>
+          <div class="phase-desc">Fix what's broken. Root cause analysis (not symptom), fix, regression testing, post-mortem.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rostr-proof">
+      <div class="proof-card">
+        <div class="icon">🏢</div>
+        <h4>Gency AI — SOP to Agent Pipeline</h4>
+        <p>The ROSTR framework powers the CoE project intake system — cutting idea-to-scoped-project from 4–8 hours to under 30 minutes. Every GTM automation project routes through PAL compilation and NPAO phase classification.</p>
+      </div>
+      <div class="proof-card">
+        <div class="icon">🤖</div>
+        <h4>Gency AI</h4>
+        <p>The agency's core product: SOP → intelligent agent. JTBD Analysis maps intent, PAL/NLP extracts and compiles it, the ROSTR system builds the agent. Every client engagement runs on this pipeline.</p>
+      </div>
+      <div class="proof-card">
+        <div class="icon">📚</div>
+        <h4>Published & Citable</h4>
+        <p>Full academic paper on Zenodo with DOI. Formalized architecture with algorithms, formulas, and implementation templates. Not a blog post — peer-reviewable, citable research. <a href="https://zenodo.org/records/19550414" style="color:var(--accent);">Read the paper ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="section" id="work">
+  <div class="section-inner">
+    <div class="section-label">Impact at a glance</div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-n">8+</div><div class="metric-l">production GTM automations live</div></div>
+      <div class="metric"><div class="metric-n">~242</div><div class="metric-l">deals auto-screened, every one auditable</div></div>
+      <div class="metric"><div class="metric-n">0→stable</div><div class="metric-l">post-sales workflow recovered from 84% failure</div></div>
+      <div class="metric"><div class="metric-n">&lt;30m</div><div class="metric-l">idea → scoped project, down from 4–8 hrs</div></div>
+      <div class="metric"><div class="metric-n">30+</div><div class="metric-l">Claude skills & agents for GTM team</div></div>
+      <div class="metric"><div class="metric-n">$5M+</div><div class="metric-l">consulting pipeline attributed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-label">Tools & Stack</div>
+    <h2>What I work with</h2>
+    <p class="subtitle">Production-grade tools across AI, orchestration, GTM, and cloud.</p>
+    <div class="tech-grid">
+      <div class="tech-cat">
+        <h4>AI / LLM</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">Azure OpenAI (GPT-4o / GPT-5)</span>
+          <span class="tech-tag">Claude + Agent SDK</span>
+          <span class="tech-tag">Claude Skills</span>
+          <span class="tech-tag">OpenAI Assistants API</span>
+          <span class="tech-tag">Google Gemini</span>
+          <span class="tech-tag">AWS Bedrock</span>
+          <span class="tech-tag">Prompt Engineering</span>
+          <span class="tech-tag">RAG & Grounding</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <h4>Orchestration & Automation</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">n8n</span>
+          <span class="tech-tag">Make.com</span>
+          <span class="tech-tag">Zapier</span>
+          <span class="tech-tag">MCP</span>
+          <span class="tech-tag">Webhooks</span>
+          <span class="tech-tag">Custom JS Engines</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">Vercel Cron</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <h4>GTM & CRM Stack</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">HubSpot API</span>
+          <span class="tech-tag">Clay</span>
+          <span class="tech-tag">Salesforce</span>
+          <span class="tech-tag">Amplemarket</span>
+          <span class="tech-tag">ZoomInfo</span>
+          <span class="tech-tag">Avoma</span>
+          <span class="tech-tag">Factors.ai</span>
+          <span class="tech-tag">Apollo.io</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <h4>Cloud & Infra</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS (EC2, S3, Lambda)</span>
+          <span class="tech-tag">Azure Blob Storage</span>
+          <span class="tech-tag">Vercel</span>
+          <span class="tech-tag">Supabase</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">GitHub Actions</span>
+          <span class="tech-tag">Microsoft 365</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <h4>Languages & Frameworks</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">JavaScript / TypeScript</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">HTML / CSS</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <h4>Design & Productivity</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">Asana</span>
+          <span class="tech-tag">Notion</span>
+          <span class="tech-tag">Airtable</span>
+          <span class="tech-tag">Figma</span>
+          <span class="tech-tag">Excel / Sheets</span>
+          <span class="tech-tag">Mailchimp</span>
+          <span class="tech-tag">Slack</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE PRODUCTION -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-label">Section 01</div>
+    <h2>Enterprise Production</h2>
+    <p class="subtitle">Production AI systems shipping inside a 50+ person GTM org at Atlas HXM.</p>
+    <div class="cards">
+      <a class="card" href="case-studies.html#compliance">
+        <div class="card-tag">Flagship · Live</div>
+        <h3>EOR Compliance Checker (v5)</h3>
+        <p>46-node n8n system auto-screens pipeline deals against 30-sector compliance worksheet. Hybrid LLM + deterministic engine.</p>
+        <div class="card-stack">n8n · Azure OpenAI · HubSpot API · Custom JS rules engine</div>
+      </a>
+      <a class="card" href="case-studies.html#postcall">
+        <div class="card-tag">Live · Reliability turnaround</div>
+        <h3>Post-Sales Call Automation</h3>
+        <p>Recovered failing multi-agent follow-up pipeline. Replaced dead AI Search with deterministic blob lookups. 882KB → 295KB context.</p>
+        <div class="card-stack">n8n cloud · Avoma · Azure OpenAI · Azure Blob (250+ country files)</div>
+      </a>
+      <a class="card" href="case-studies.html#precall">
+        <div class="card-tag">Built · VP-requested</div>
+        <h3>Pre-Sales Call Automation</h3>
+        <p>Meeting booked → prep note to rep within hours. Event trigger defeats time-zone failures. Factors.ai enrichment.</p>
+        <div class="card-stack">HubSpot · n8n · Factors.ai · Azure OpenAI</div>
+      </a>
+      <a class="card" href="case-studies.html#chatbot">
+        <div class="card-tag">Live · Channel recovery</div>
+        <h3>Chatbot MQL + Attribution</h3>
+        <p>AI classify-route + CRM attribution. Recovered 364 historical contacts. Idempotency-gated pipeline.</p>
+        <div class="card-stack">HubSpot chatbot · n8n · Azure OpenAI · Slack</div>
+      </a>
+      <a class="card" href="case-studies.html#clay">
+        <div class="card-tag">Shipped · Cost governance</div>
+        <h3>Clay Credit Governance</h3>
+        <p>Traced 515K credit spike to root cause. Built enrichment template with ICP gate, deduped phone model, 3 build profiles.</p>
+        <div class="card-stack">Clay API · Excel modeling · Leadership one-sheeter</div>
+      </a>
+      <a class="card" href="case-studies.html#ags">
+        <div class="card-tag">Platform · 50+ users</div>
+        <h3>SDR-Agency Prospecting (AGS)</h3>
+        <p>Full supply chain for outsourced SDRs: intake → enrich → suppress → activate. 5,398-contact master, CRM-safe.</p>
+        <div class="card-stack">Clay · Amplemarket · ZoomInfo · HubSpot API</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT SKILLS -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-label">Section 02</div>
+    <h2>Agent Skills Library</h2>
+    <p class="subtitle">30+ reusable Claude skills and agents for the GTM team — prospecting, workflow ops, revenue enablement, content at scale.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-name">clay-prospecting-engine</div><div class="skill-desc">Build and execute Clay prospecting tables with enrichment logic</div></div>
+      <div class="skill-card"><div class="skill-name">n8n-engineer</div><div class="skill-desc">Build, debug, and deploy n8n production workflows</div></div>
+      <div class="skill-card"><div class="skill-name">gtm-architect</div><div class="skill-desc">Design GTM systems and automation architecture end-to-end</div></div>
+      <div class="skill-card"><div class="skill-name">new-project-system</div><div class="skill-desc">Intake engine: raw input → full project package (PRD, architecture, plan)</div></div>
+      <div class="skill-card"><div class="skill-name">case-study-builder</div><div class="skill-desc">Build data-rich case studies from project records and metrics</div></div>
+      <div class="skill-card"><div class="skill-name">hubspot-data-analyst</div><div class="skill-desc">Analyze CRM data, pipelines, and revenue in HubSpot</div></div>
+      <div class="skill-card"><div class="skill-name">saas-architect</div><div class="skill-desc">Full SaaS platform architecture design and scaffolding</div></div>
+      <div class="skill-card"><div class="skill-name">atlas-proposal-builder</div><div class="skill-desc">Build Atlas proposals and decks from deal context</div></div>
+      <div class="skill-card"><div class="skill-name">workflow-builder</div><div class="skill-desc">General-purpose workflow construction and automation</div></div>
+      <div class="skill-card"><div class="skill-name">dashboard-builder</div><div class="skill-desc">Build dashboards and reporting interfaces</div></div>
+      <div class="skill-card"><div class="skill-name">rostr-builder</div><div class="skill-desc">ROSTR framework implementation and orchestration</div></div>
+      <div class="skill-card"><div class="skill-name">atlas-agent-factory</div><div class="skill-desc">Build new Atlas agents from natural language descriptions</div></div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:13px; color:var(--muted);">30+ skills total. Full catalog in <a href="MASTER_KB.md" style="color:var(--accent);">master knowledge base</a>.</p>
+  </div>
+</section>
+
+<!-- PRODUCT LIBRARY -->
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-label">Section 03</div>
+    <h2>Product Library</h2>
+    <p class="subtitle">Products and platforms I've founded, built, and shipped — from AI consulting to civic infrastructure.</p>
+    <div class="products">
+      <div class="product"><div class="product-icon">🤖</div><h3>GPTPAT</h3><p>Production AI for SMB and mid-market: chatbots, email automation, ed-tech, Shopify workflows.</p><a href="https://gptpat.co" class="product-link" target="_blank">gptpat.co →</a></div>
+      <div class="product"><div class="product-icon">🏛️</div><h3>Your48</h3><p>Civic intelligence platform for Chicago's 48th Ward — precinct directory, business database, intake forms, ward dashboard.</p><a href="https://your48.vercel.app" class="product-link" target="_blank">your48.vercel.app →</a></div>
+      <div class="product"><div class="product-icon">📊</div><h3>RevEnabled</h3><p>GTM systems consulting. Dark Roast Media ($1M→$3M ARR), Rand McNally ($5M pipeline, 2,000% engagement lift).</p><a href="https://revenabled.com" class="product-link" target="_blank">revenabled.com →</a></div>
+      <div class="product"><div class="product-icon">📚</div><h3>ROSTR Framework</h3><p>Published multi-agent architecture: PAL + RAG DAL + NPAO + Rostr Hub. 5D phase taxonomy. Zenodo DOI.</p><a href="https://zenodo.org/records/19550414" class="product-link" target="_blank">Zenodo DOI →</a></div>
+      <div class="product"><div class="product-icon">🎵</div><h3>Artist EPKs</h3><p>Electronic Press Kit platform for independent artists. Dark theme, gold accent. Next.js 16 + Supabase + Stripe.</p><a href="https://artistsepks.vercel.app" class="product-link" target="_blank">artistsepks.vercel.app →</a></div>
+      <div class="product"><div class="product-icon">🔬</div><h3>Scalytics.io</h3><p>GTM systems for private-AI / federated-data startup. ICP, outbound tooling, CRM automations with PhDs.</p><a href="https://scalytics.io" class="product-link" target="_blank">scalytics.io →</a></div>
+      <div class="product"><div class="product-icon">🤖</div><h3>Gency AI</h3><p>Agent development & adoption agency. SOP → intelligent agent via ROSTR. AI teams, n8n/Make, IDE setup, custom MCPs.</p><a href="https://gencyai.vercel.app" class="product-link" target="_blank">gencyai.vercel.app →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio-section">
+  <div class="bio-inner">
+    <div class="bio-photo" aria-label="Patrick Diamitani">PD</div>
+    <div class="bio-content">
+      <h2>About me</h2>
+      <p>I'm a production AI systems builder based in Chicago. I lead AI & Automation for a global Employer-of-Record platform, where I've shipped 8+ production automations that screen deals, prepare reps, automate follow-ups, and govern spend — all built on a hybrid architecture where LLMs handle the messy text and deterministic code makes every decision auditable.</p>
+      <p>Before AI, I spent years in enterprise sales at Uber and Upwork, which is why I build differently: every system I ship is designed for the operators who will actually use it. I also serve as a precinct captain for Chicago's 48th Ward, where I built a civic intelligence platform connecting residents to their government.</p>
+      <hr class="bio-divider">
+      <div class="bio-detail"><dt>Currently</dt><dd>GTM AI & Automation Manager at Atlas HXM</dd></div>
+      <div class="bio-detail"><dt>Location</dt><dd>Chicago, IL · Open to relocation</dd></div>
+      <div class="bio-detail"><dt>Certifications</dt><dd>AWS Certified AI Practitioner + Cloud Practitioner</dd></div>
+      <a href="about.html" style="display:inline-block;margin-top:1rem;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px;">Full bio →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section class="section">
+  <div class="section-inner">
+    <div class="resume-cta">
+      <h3>Full resume</h3>
+      <p>Complete FDE / GTM / AI Engineer resume with experience, civic leadership, publications, and impact metrics.</p>
+      <a href="resume.html">View Full Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="https://your48.vercel.app">Your48</a>
+    <a href="https://zenodo.org/records/19550414">ROSTR Paper</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+    <a href="MASTER_KB.md">Knowledge Base</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

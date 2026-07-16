@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Case Studies — Patrick Diamitani. Deep-dive project documentation: EOR Compliance Checker, Post-Sales Automation, Clay Credit Governance, Your48 Civic Platform, ROSTR Framework.">
+<title>Case Studies — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+
+.page { padding-top: 96px; }
+.section { padding: 80px 2rem; }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+.section h1 { font-size: 40px; font-weight: 540; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 1.5rem; }
+.section h2 { font-size: 24px; font-weight: 540; margin: 3rem 0 1rem; letter-spacing: -0.3px; }
+.section h3 { font-size: 16px; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--accent); }
+.section p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+
+.case-study {
+  border-top: 1px solid var(--border); padding-top: 40px; margin-top: 40px;
+}
+.case-study:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+.cs-header { margin-bottom: 1.5rem; }
+.cs-tag { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); font-weight: 700; margin-bottom: 6px; }
+.cs-header h2 { margin: 0 0 8px; }
+.cs-stack { font-size: 12px; color: var(--dim); font-family: var(--mono); }
+
+.metric-bar {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;
+  margin: 1.5rem 0;
+}
+.met { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+.met-n { font-size: 22px; font-weight: 700; color: var(--accent); }
+.met-l { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.quote {
+  background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+  padding: 16px 20px; margin: 1.5rem 0; font-size: 14px; color: var(--text);
+  font-style: italic; line-height: 1.6;
+}
+
+.file-list {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; margin: 1rem 0;
+}
+.file-list h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 8px; }
+.file-item {
+  display: flex; align-items: center; gap: 8px; padding: 6px 0;
+  font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--border);
+}
+.file-item:last-child { border-bottom: none; }
+.file-icon { font-size: 16px; flex-shrink: 0; }
+
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  .section h1 { font-size: 30px; }
+  .section h2 { font-size: 20px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo"><img src="public/logo.svg" alt="Diamitani Industries" style="height:28px;display:block"></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="case-studies.html" class="active">Studies</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="photography.html">Photos</a>
+      <a href="MASTER_KB.md">KB</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Case Studies</div>
+    <h1>How the work gets done.</h1>
+    <p>Deep-dive project documentation — architecture decisions, what broke, how it was fixed, and what shipped. Each study covers the problem, the system design, and measurable outcomes.</p>
+
+    <!-- CASE 1: EOR Compliance Checker -->
+    <div class="case-study" id="compliance">
+      <div class="cs-header">
+        <div class="cs-tag">Flagship · Live in Production</div>
+        <h2>01 — EOR Compliance Checker (v5)</h2>
+        <div class="cs-stack">n8n · Azure OpenAI GPT-4o · HubSpot API · Custom JS rules engine</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">~242</div><div class="met-l">deals auto-screened</div></div>
+        <div class="met"><div class="met-n">103</div><div class="met-l">mis-tagged deals corrected</div></div>
+        <div class="met"><div class="met-n">46</div><div class="met-l">nodes in workflow</div></div>
+        <div class="met"><div class="met-n">238/238</div><div class="met-l">clean writes before go-live</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Reps advanced deals to contracting and KYC without knowing if the role or industry was even eligible for EOR. Compliance only caught blockers at contract review — after the prospect was ready to sign. Lost deals, wasted KYC, eroded trust.</p>
+      <h3>System Design</h3>
+      <p>A 46-node n8n production workflow with three trigger paths: real-time webhook on deal creation/stage change, hourly safety-net sweep, and on-demand batch re-screen. The core architecture decision: the LLM only maps messy CRM text to one of 30 canonical sectors — a deterministic JavaScript matrix makes every tier decision. This means every verdict is repeatable, auditable, and cites its own reasoning.</p>
+      <p>Edge cases were reasoned about explicitly: pass-through detection (a staffing firm placing workers into oil & gas is screened as oil & gas, not staffing), semantic sector aliasing, and a "needs-title" hold instead of guessing on thin data.</p>
+      <div class="quote">"The core design decision — rules live in code, not in the model's head — is what makes it durable. The LLM does only what it's good at (reading unstructured text)."</div>
+      <h3>What Broke & How It Was Fixed</h3>
+      <p><strong>Const-reassignment bug on first live test:</strong> caught immediately by the verification step; fixed and re-tested green. Prevention: the dry-run harness now gates every change.</p>
+      <p><strong>Five analytics properties silently failed to write:</strong> didn't exist in the CRM. Folded content into the audit-note field instead. Prevention: validate property existence before writing.</p>
+      <p><strong>Old prompt let thin data demote clean sectors:</strong> re-architected so confidence is a report field that never changes the tier.</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> Compliance Worksheet (30-sector, transcribed from official OHS Risk Guide)</div>
+        <div class="file-item"><span class="file-icon">📄</span> n8n Workflow JSON — 46-node production graph (NDA)</div>
+        <div class="file-item"><span class="file-icon">📄</span> Unit Test Suite — 16 tests covering sector mapping, tier assignment, edge cases</div>
+        <div class="file-item"><span class="file-icon">📄</span> Dry-Run Harness — report-only mode that tests rule changes against entire pipeline</div>
+        <div class="file-item"><span class="file-icon">📄</span> Go-Live Validation Report — 238/238 clean production writes</div>
+      </div>
+    </div>
+
+    <!-- CASE 2: Post-Sales Call Automation -->
+    <div class="case-study" id="postcall">
+      <div class="cs-header">
+        <div class="cs-tag">Live · Major Reliability Turnaround</div>
+        <h2>02 — Post-Sales Call Automation</h2>
+        <div class="cs-stack">n8n cloud · Avoma webhook · Azure OpenAI · Azure Blob Storage (250+ country files)</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">21/25→0</div><div class="met-l">failures eliminated</div></div>
+        <div class="met"><div class="met-n">882→295KB</div><div class="met-l">context bloat reduction</div></div>
+        <div class="met"><div class="met-n">250+</div><div class="met-l">country data files</div></div>
+        <div class="met"><div class="met-n">4</div><div class="met-l">AI agents in pipeline</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Reps spent time after every call on follow-up research and writing. The automation meant to handle it was failing 21 of 25 runs — a dead Azure AI Search index left four AI agents with no country context, producing generic filler instead of specific, grounded output.</p>
+      <h3>System Design</h3>
+      <p>Rather than recreate a fragile index (which needed permissions I didn't have), the whole failure point was designed out: extract countries mentioned in the call transcript → ISO-3 codes → fetch each file directly from Azure Blob Storage → inject into every agent. No fuzzy search, no credentials to rotate, graceful fallback so the email still sends if a file is missing.</p>
+      <div class="quote">"This is a textbook resilience rebuild. Replace the fragile service with a deterministic lookup — country code → exact file, no search index to die."</div>
+      <h3>What Broke & How It Was Fixed</h3>
+      <p><strong>84% of failures: dead Azure AI Search index (DNS not-found):</strong> removed the dependency entirely; replaced with deterministic blob fetch.</p>
+      <p><strong>Silent dead-ends on scheduled/future meetings:</strong> added meeting-completion guard + bounded retry budget (10→20 polls) + explicit exit nodes.</p>
+      <p><strong>Broken paired-item lineage dropped transcripts downstream:</strong> carried the base object forward and converted 28 fragile item-references to a stable form.</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> Post-Sales Automation Close-Out Report (PDF)</div>
+        <div class="file-item"><span class="file-icon">📄</span> Country Context n8n Module — deterministic blob fetch architecture</div>
+        <div class="file-item"><span class="file-icon">📄</span> Failure Analysis CSV — 25-run diagnostic with root cause per failure</div>
+        <div class="file-item"><span class="file-icon">📄</span> Troubleshooting & Status Document</div>
+      </div>
+    </div>
+
+    <!-- CASE 3: Clay Credit Governance -->
+    <div class="case-study" id="clay">
+      <div class="cs-header">
+        <div class="cs-tag">Shipped · Cost + Governance Win</div>
+        <h2>03 — Clay Credit Governance & Cost Control</h2>
+        <div class="cs-stack">Clay API · Excel data modeling · Leadership one-sheeter</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">515K</div><div class="met-l">credits traced to root cause</div></div>
+        <div class="met"><div class="met-n">~50→~15</div><div class="met-l">per-row credit reduction</div></div>
+        <div class="met"><div class="met-n">3</div><div class="met-l">build profiles shipped</div></div>
+        <div class="met"><div class="met-n">7-sheet</div><div class="met-l">forensic audit dataset</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Enrichment credit usage spiked from under 15K/month to 515K in a single month. 21% of spend ran through unattributed "Copy of" tables. Phone numbers were bought 2–3x per contact. A single day burned 201,924 credits from a phone-waterfall re-buying the same numbers.</p>
+      <h3>System Design</h3>
+      <p>Full-year forensic audit: a seven-sheet master dataset that re-attributed unnamed "Copy of" spend to real source tables. Then shipped a Standard Enrichment Table Template with three build profiles (Lean ~15 / Balanced ~21 / Full ~50 credits per row) and a credit-planning architecture: gate → cap → clone-don't-copy → dedupe → consolidate → weekly review.</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📊</span> Clay Credit Spend MASTER Data Package (Jun 2026) — 7-sheet Excel</div>
+        <div class="file-item"><span class="file-icon">📊</span> Clay Credit Spend Analysis (Jun 2026) — detailed Excel workbook</div>
+        <div class="file-item"><span class="file-icon">📄</span> Leadership One-Sheeter (PDF) — executive summary for VP Growth</div>
+        <div class="file-item"><span class="file-icon">📄</span> Detailed Report (Markdown) — 186-line narrative for Head of Revenue</div>
+        <div class="file-item"><span class="file-icon">📄</span> Standard Enrichment Table Template Design Doc</div>
+        <div class="file-item"><span class="file-icon">📊</span> Credit Usage by Table — June 2025 – June 2026 (CSV)</div>
+        <div class="file-item"><span class="file-icon">📄</span> Weekly Credit Review Governance Template</div>
+      </div>
+    </div>
+
+    <!-- CASE 4: Your48 Civic Platform -->
+    <div class="case-study" id="your48">
+      <div class="cs-header">
+        <div class="cs-tag">Civic Tech · Live Platform</div>
+        <h2>04 — Your48 Civic Intelligence Platform</h2>
+        <div class="cs-stack">React · Vite · TypeScript · Mapbox GL · Chicago Data Portal API · Vercel</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">1,562</div><div class="met-l">businesses catalogued</div></div>
+        <div class="met"><div class="met-n">39</div><div class="met-l">precincts mapped</div></div>
+        <div class="met"><div class="met-n">$0/mo</div><div class="met-l">infrastructure cost</div></div>
+        <div class="met"><div class="met-n">4</div><div class="met-l">data sources integrated</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Chicago's 48th Ward (Edgewater, Uptown, Andersonville) had no digital way for residents to find their precinct captain, look up local businesses, or submit service requests. The ward office managed 39 precinct contacts in Excel, 1,500+ business licenses as PDFs from the city, and service requests via paper forms. This doesn't scale.</p>
+      <h3>System Design</h3>
+      <p>Your48 V1.0 shipped as a static civic homepage with ward directory, city services, community resources, events calendar, and an AI chat widget. V2.0 adds precinct directory with interactive Mapbox map, searchable business license database from Chicago Data Portal, constituent intake forms with Airtable backend, and a public ward dashboard for transparency. The entire platform runs at $0/month on Vercel's free tier.</p>
+      <div class="quote">"Government technology shouldn't cost $50,000 in consulting fees. It should be fast, transparent, and nearly free to operate."</div>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> Project Brief — Your48 V2.0 executive summary & defense</div>
+        <div class="file-item"><span class="file-icon">📄</span> Architecture Diagram — SVG system design (5-layer diagram)</div>
+        <div class="file-item"><span class="file-icon">📄</span> PRD — detailed feature specs for precincts, businesses, intake, dashboard</div>
+        <div class="file-item"><span class="file-icon">📊</span> Seed Data — 1,500+ businesses from Chicago Data Portal API (JSON)</div>
+        <div class="file-item"><span class="file-icon">📊</span> Precinct CSV — 39 precincts with captain assignments</div>
+        <div class="file-item"><span class="file-icon">🗺️</span> Ward Boundary GeoJSON — precinct polygons for Mapbox overlay</div>
+        <div class="file-item"><span class="file-icon">📄</span> ROSTR Data Sync Pipeline — daily cron architecture</div>
+      </div>
+    </div>
+
+    <!-- CASE 5: ROSTR Framework -->
+    <div class="case-study" id="rostr">
+      <div class="cs-header">
+        <div class="cs-tag">Published Research · Framework</div>
+        <h2>05 — ROSTR Multi-Agent Framework</h2>
+        <div class="cs-stack">Published via Zenodo · DOI: 10.5281/zenodo.19550414</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">4</div><div class="met-l">architectural components</div></div>
+        <div class="met"><div class="met-n">5D</div><div class="met-l">phase taxonomy</div></div>
+        <div class="met"><div class="met-n">4D</div><div class="met-l">priority scoring</div></div>
+        <div class="met"><div class="met-n">3-tier</div><div class="met-l">knowledge credibility</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Multi-agent AI systems suffer from context loss between sessions, naive task routing (keyword matching instead of phase-aware allocation), brittle retrieval (single-pass search without credibility control), and brittle prompting (raw prompts instead of compiled manifests). Production systems need architecture, not ad-hoc chains.</p>
+      <h3>System Design</h3>
+      <p>ROSTR formalizes four components: <strong>PAL</strong> (Prompt Abstraction Layer) compiles loose natural language into strict agent runtime manifests through a five-stage pipeline. <strong>RAG DAL</strong> (Dynamic Acquisition Layer) performs multi-pass retrieval across three credibility tiers (academic → editorial → community). <strong>NPAO</strong> classifies work into a 5D phase taxonomy (PreD → Design → Development → Deployment → Debugging) and scores priority on 4 dimensions. The <strong>Rostr Hub</strong> provides persistent state with four-level management (session → project → org → agent).</p>
+      <p>The framework is the backbone of the Gency AI agency — turning SOPs into intelligent agents — which cuts idea-to-scoped-project from 4–8 hours to under 30 minutes.</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> ROSTR Master Paper (PDF) — full academic publication</div>
+        <div class="file-item"><span class="file-icon">📄</span> CLAUDE.md — implementation guide with architecture, algorithms, templates</div>
+        <div class="file-item"><span class="file-icon">📄</span> PAL Compiler Specification — 5-stage intent compilation pipeline</div>
+        <div class="file-item"><span class="file-icon">📄</span> RAG DAL Algorithm — multi-pass retrieval with confidence scoring</div>
+        <div class="file-item"><span class="file-icon">📄</span> NPAO Taxonomy — 5D phase + 4D priority + agent allocation algorithm</div>
+        <div class="file-item"><span class="file-icon">🔗</span> Zenodo Record — <a href="https://zenodo.org/records/19550414" style="color:var(--accent2);">zenodo.org/records/19550414</a></div>
+      </div>
+    </div>
+
+    <!-- CASE 6: AGS Prospect Automation -->
+    <div class="case-study" id="ags">
+      <div class="cs-header">
+        <div class="cs-tag">SDR Operations · Live Pipeline</div>
+        <h2>06 — SDR-Agency Prospect Automation (AGS)</h2>
+        <div class="cs-stack">Clay · Amplemarket · ZoomInfo · HubSpot API · Custom JS Round-Robin Engine</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">5,398</div><div class="met-l">contacts in master pipeline</div></div>
+        <div class="met"><div class="met-n">188</div><div class="met-l">verified HR contacts (competitive takeaway)</div></div>
+        <div class="met"><div class="met-n">4</div><div class="met-l">companies pulled per send (suppression)</div></div>
+        <div class="met"><div class="met-n">100%</div><div class="met-l">CRM-safe screening on every list</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>A paid SDR agency needed a steady stream of clean, targeted, compliance-screened prospect lists every week — without contacting existing customers, open deals, closed-lost, or recently-touched contacts. Manual list building was slow, error-prone, and risked burning the agency's time (and the company's reputation) on dead-end or off-limits accounts.</p>
+      <h3>System Design</h3>
+      <p>Built a repeatable intake → normalize → dedupe → enrich → suppress → activate pipeline across Clay, Amplemarket, ZoomInfo, and HubSpot. Every company is screened live against the CRM before send: customer status, open deals, closed-lost, and active sequences are all checked. A custom JS round-robin engine assigns each prospect to the right sales pod based on territory (US West/Midwest/Northeast/South-Central + EMEA/Canada + Global).</p>
+      <p>The pipeline also includes an APAC filter that removes companies from Asia-Pacific markets using TLD detection (`.hk`, `.cn`, `.jp`, etc.), domain keyword matching, and company name analysis — catching APAC records even when HubSpot location fields are empty. Schools, governments, and competitors are filtered out via ICP screening.</p>
+      <div class="quote">"Treat prospecting as a governed data pipeline with source-of-truth boundaries — CRM = truth, enrichment = workspace, orchestration = glue. That's the difference between a list and a liability."</div>
+      <h3>What Broke & How It Was Fixed</h3>
+      <p><strong>Parallel one-off workbooks caused drift:</strong> different team members built their own Clay tables. Consolidated into one master workbook with segment tabs as the operating source of truth.</p>
+      <p><strong>APAC records slipping through with empty location fields:</strong> added domain TLD detection, domain keyword matching, and company name analysis as fallback detection layers — catching records that HubSpot location fields missed.</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> AGS_PROSPECT_AUTOMATION.json — 46-node n8n workflow with round-robin assignment engine</div>
+        <div class="file-item"><span class="file-icon">📄</span> Round-Robin Assignment Engine — territory-based pod routing (US West/Midwest/Northeast/South + EMEA + Global)</div>
+        <div class="file-item"><span class="file-icon">📄</span> APAC Filter v2 — multi-layer detection (TLD, domain keywords, company name, location fields)</div>
+        <div class="file-item"><span class="file-icon">📄</span> ICP Filter — school/government exclusion with NGO preservation logic</div>
+        <div class="file-item"><span class="file-icon">📊</span> 5,398-Contact Master — segmented, tagged, CRM-safe</div>
+        <div class="file-item"><span class="file-icon">📄</span> Competitive Takeaway Play — 188 verified HR contacts at named competitor</div>
+      </div>
+    </div>
+
+    <!-- CASE 7: Gency AI -->
+    <div class="case-study" id="gency">
+      <div class="cs-header">
+        <div class="cs-tag">Agency · Agent Development & Adoption</div>
+        <h2>07 — Gency AI: SOPs to Intelligent Agents</h2>
+        <div class="cs-stack">ROSTR Framework · Claude Agent SDK · n8n · Make.com · Antigravity · Custom MCP</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">3-step</div><div class="met-l">ROSTR-powered intake pipeline</div></div>
+        <div class="met"><div class="met-n">4</div><div class="met-l">core service verticals</div></div>
+        <div class="met"><div class="met-n">24/7</div><div class="met-l">agent operations</div></div>
+        <div class="met"><div class="met-n">Live</div><div class="met-l">accepting clients</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Organizations, SMBs, and consulting agencies have SOPs — documented processes that run their business — but turning those into autonomous AI agents requires deep expertise in agent frameworks, workflow orchestration, and platform configuration. Most teams don't have that in-house, and generic AI tools don't understand their specific business logic.</p>
+      <h3>System Design</h3>
+      <p>Gency AI uses a three-step ROSTR-powered process: <strong>JTBD Analysis</strong> maps the exact job the operator needs done, with deep intake to understand functional requirements. <strong>NLP Intent Extraction</strong> takes natural language descriptions and maps them to architecture. Then the <strong>ROSTR System</strong> delivers a full agent, workflow, or skill — production-grade automation the team can adopt instantly.</p>
+      <p>Service verticals span AI Agent Development (Claude Code, Codex, OpenClaw), Workflow Orchestration (n8n, Make.com), IDE & Platform Setup (Antigravity, Claude Code environments), and Web Apps & Custom MCPs that let agents interact with business logic. The interactive demo on the site lets prospects paste an SOP and watch the ROSTR engine generate architecture in real time.</p>
+      <div class="quote">"Turn any SOP into an intelligent agent. We empower operators to grow and scale their teams using customized workflows — from IDE setup to custom MCP integrations."</div>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">🌐</span> Live Site — <a href="https://gencyai.vercel.app" style="color:var(--accent2);">gencyai.vercel.app</a> (5 pages: Home, Services, Process, Pricing, Work, About)</div>
+        <div class="file-item"><span class="file-icon">📄</span> Interactive SOP-to-Architecture Demo — ROSTR-powered wizard</div>
+        <div class="file-item"><span class="file-icon">📄</span> ROSTR Whitepaper — <a href="https://rostr-paper.vercel.app" style="color:var(--accent2);">rostr-paper.vercel.app</a></div>
+        <div class="file-item"><span class="file-icon">📄</span> Calendly Booking — <a href="https://calendly.com/diamitani" style="color:var(--accent2);">calendly.com/diamitani</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="https://your48.vercel.app">Your48</a>
+    <a href="https://zenodo.org/records/19550414">ROSTR Paper</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+    <a href="MASTER_KB.md">Knowledge Base</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

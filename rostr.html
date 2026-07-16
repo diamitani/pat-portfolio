@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ROSTR Framework — A unified architecture for production-grade multi-agent systems. PAL, RAG DAL, NPAO, Rostr Hub. Published by Patrick Diamitani. DOI: 10.5281/zenodo.19550414">
+<title>ROSTR Framework — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,9,12,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+
+.page { padding-top: 96px; }
+
+/* HERO */
+.rostr-hero { padding: 80px 2rem; background: radial-gradient(160% 100% at 50% 0%, #1b1938 0%, #0f0d1f 40%, #08090c 100%); border-bottom: 1px solid rgba(167,139,250,0.15); position: relative; overflow: hidden; }
+.rostr-hero::after { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(167,139,250,0.12), rgba(6,182,212,0.02) 60%); filter: blur(80px); pointer-events: none; }
+.rostr-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.rostr-hero .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent2); font-weight: 600; margin-bottom: 1.5rem; }
+.rostr-hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 540; line-height: 1.05; letter-spacing: -1px; margin-bottom: 1rem; color: #fff; }
+.rostr-hero h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.rostr-hero .tagline { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; line-height: 1.5; margin-bottom: 1.5rem; }
+.rostr-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
+.rostr-link { padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all .15s; }
+.rostr-link.primary { background: var(--cream); color: var(--ink); }
+.rostr-link.primary:hover { opacity: 0.85; }
+.rostr-link.ghost { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+.rostr-link.ghost:hover { border-color: rgba(255,255,255,0.4); }
+
+/* SECTIONS */
+.section { padding: 80px 2rem; }
+.section-alt { padding: 80px 2rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+h2 { font-size: 32px; font-weight: 540; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 1.5rem; }
+h3 { font-size: 20px; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.3px; color: var(--accent); }
+p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+p strong { color: var(--text); }
+
+/* COMPONENT CARDS */
+.comp { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+.comp:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.comp-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 1rem; }
+.comp-num { font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 600; white-space: nowrap; }
+.comp-name { font-size: 24px; font-weight: 600; }
+.comp-full { font-size: 14px; color: var(--dim); font-weight: 500; margin-bottom: 1rem; }
+.comp p { margin-bottom: 0.75rem; }
+.comp ul { margin: 0.5rem 0 1rem; padding-left: 1.2em; }
+.comp li { font-size: 14px; color: var(--muted); margin-bottom: 4px; line-height: 1.5; }
+
+/* PHASE TABLE */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 1.5rem 0; }
+.phase {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px;
+}
+.phase-num { font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.phase-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.phase-q { font-size: 11px; color: var(--dim); margin-bottom: 6px; }
+.phase-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* LINKS CARD */
+.links-card {
+  background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(6,182,212,0.04));
+  border: 1px solid rgba(167,139,250,0.2); border-radius: 14px;
+  padding: 32px; margin-bottom: 2rem;
+}
+.links-card h3 { color: var(--text); }
+.link-row {
+  display: flex; align-items: center; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid var(--border); font-size: 14px;
+}
+.link-row:last-child { border-bottom: none; }
+.link-row .icon { font-size: 18px; flex-shrink: 0; }
+.link-row a { color: var(--accent2); text-decoration: none; font-weight: 600; font-family: var(--mono); font-size: 13px; }
+.link-row a:hover { text-decoration: underline; }
+.link-row span { color: var(--muted); font-size: 13px; }
+
+/* CODE BLOCK */
+.code-block {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 20px 24px; margin: 1rem 0; overflow-x: auto;
+  font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--muted);
+}
+.code-block .kw { color: var(--accent); }
+.code-block .val { color: var(--accent2); }
+.code-block .cmt { color: var(--dim); }
+
+/* FOOTER */
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); background: var(--bg); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .rostr-hero h1 { font-size: 30px; }
+  h2 { font-size: 24px; }
+  .rostr-links { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">Patrick <span>Diamitani</span></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="rostr.html" class="active">ROSTR</a>
+      <a href="case-studies.html">Studies</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+<section class="rostr-hero">
+  <div class="rostr-hero-inner">
+    <div class="eyebrow">Published Research · My Contribution to AI</div>
+    <h1>The <em>ROSTR</em> Framework</h1>
+    <p class="tagline">A unified architecture for production-grade multi-agent systems with phase-aware orchestration and persistent knowledge compounding. Four components. A five-phase taxonomy. Running in production today.</p>
+    <div class="rostr-links">
+      <a href="https://zenodo.org/records/19550414" class="rostr-link primary" target="_blank">📄 Read the full paper (Zenodo)</a>
+      <a href="https://rostr-paper.vercel.app" class="rostr-link ghost" target="_blank">🌐 rostr-paper.vercel.app</a>
+      <a href="case-studies.html#rostr" class="rostr-link ghost">📋 Case study</a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Overview</div>
+    <h2>Why ROSTR exists</h2>
+    <p>Multi-agent AI systems suffer from four fundamental problems: <strong>context loss</strong> between sessions (agents restart from scratch), <strong>naive routing</strong> (keyword matching instead of phase-aware allocation), <strong>brittle retrieval</strong> (single-pass search without credibility control), and <strong>raw prompting</strong> (no compilation, no parameterization, no reproducibility).</p>
+    <p>ROSTR solves all four. It formalizes agent invocation into a compiled manifest (PAL), retrieves knowledge with stratified credibility (RAG DAL), classifies and allocates work with a 5D phase taxonomy and 4D priority score (NPAO), and persists state across sessions with scoped namespaces (Rostr Hub).</p>
+    <p>The framework was published in April 2026 through Zenodo with DOI <code style="font-family:var(--mono);color:var(--accent2);">10.5281/zenodo.19550414</code>. It is the engine behind the Gency AI agency — turning SOPs into intelligent agents — and a contribution to the multi-agent systems field.</p>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="section-alt">
+  <div class="section-inner">
+    <div class="section-label">Architecture</div>
+    <h2>The four components</h2>
+
+    <div class="comp">
+      <div class="comp-header">
+        <span class="comp-num">01</span>
+        <div class="comp-name">PAL — Prompt Abstraction Layer</div>
+      </div>
+      <div class="comp-full">The Intent Compiler</div>
+      <p>PAL transforms loose natural language into strict agent runtime manifests. Instead of sending raw prompts to models, every agent invocation flows through a <strong>five-stage compilation pipeline</strong>:</p>
+      <ul>
+        <li><strong>Stage 1 — Intent Extraction:</strong> Parses primary intent, domain, subject, constraints, desired output, urgency, and ambiguity score from the user's natural language.</li>
+        <li><strong>Stage 2 — Context Injection:</strong> Loads session state, project context, org context, and team conventions from the Rostr Hub. Budget-managed: max 8000 tokens with priority ordering.</li>
+        <li><strong>Stage 3 — Semantic Enhancement:</strong> Expands ambiguous verbs, adds missing precision, decomposes compound goals into phase sequences, removes hedging language, injects domain best practices.</li>
+        <li><strong>Stage 4 — Runtime Compilation:</strong> Produces a structured YAML manifest: agent type, model, temperature, max parallel tasks, timeout, behavior profile, tool permissions, memory mode, output format, verification method.</li>
+        <li><strong>Stage 5 — Output Routing:</strong> Routes the compiled manifest to the appropriate execution layer based on domain and phase.</li>
+      </ul>
+      <div class="code-block">
+<span class="cmt"># PAL Runtime Manifest (compiled)</span>
+<span class="kw">runtime:</span>
+  <span class="kw">agent_type:</span> <span class="val">builder</span>
+  <span class="kw">model:</span> <span class="val">claude-sonnet-4</span>
+  <span class="kw">temperature:</span> <span class="val">0.2</span>
+<span class="kw">instructions:</span>
+  <span class="kw">behavior_profile:</span> <span class="val">analytical</span>
+  <span class="kw">completion_criteria:</span> <span class="val">[tests pass, review approved]</span>
+<span class="kw">tools_enabled:</span>
+  <span class="kw">allow:</span> <span class="val">[file_system:read, code_execution]</span>
+  <span class="kw">deny:</span> <span class="val">[file_system:write:production]</span>
+      </div>
+    </div>
+
+    <div class="comp">
+      <div class="comp-header">
+        <span class="comp-num">02</span>
+        <div class="comp-name">RAG DAL — Dynamic Acquisition Layer</div>
+      </div>
+      <div class="comp-full">Autonomous multi-pass retrieval with source credibility stratification</div>
+      <p>RAG DAL replaces naive single-pass search with a <strong>three-tier credibility architecture</strong>:</p>
+      <ul>
+        <li><strong>Tier 1 — Primary & Authoritative (credibility 1.0):</strong> Academic papers (arXiv, PubMed), official docs (.gov, standards bodies), university repositories. Used to establish ground truth.</li>
+        <li><strong>Tier 2 — Verified & Editorial (credibility 0.75):</strong> Major news outlets, trade publications, analyst reports (Gartner, McKinsey). Used to contextualize Tier 1 findings.</li>
+        <li><strong>Tier 3 — Community & UGC (credibility 0.40):</strong> Blogs, social media, forums, Stack Overflow, Reddit. Used for real-world signal, sentiment, and edge cases.</li>
+      </ul>
+      <p>The retrieval algorithm runs <strong>multi-pass</strong>: broad sweep → gap fill → deep verification. Each pass assesses coverage per sub-topic using a confidence scoring formula that weights source count (35%), consistency (30%), tier distribution (25%), and recency (10%). Pass 4 only triggers if two or more topics remain below the 0.6 threshold — at which point they're marked unresolvable.</p>
+    </div>
+
+    <div class="comp">
+      <div class="comp-header">
+        <span class="comp-num">03</span>
+        <div class="comp-name">NPAO — Navigate, Prioritize, Allocate, Orchestrate</div>
+      </div>
+      <div class="comp-full">Phase-aware task routing with 4D priority scoring</div>
+      <p>NPAO is the operational brain. It classifies every task into one of five phases, scores it on four dimensions, and allocates it to the optimal agent.</p>
+      <p><strong>5D Phase Taxonomy:</strong></p>
+      <div class="phase-grid">
+        <div class="phase"><div class="phase-num">P0</div><div class="phase-name">PreD</div><div class="phase-q">"Is this worth building?"</div><div class="phase-desc">Problem definition, competitive research, feasibility, go/no-go. NO code written.</div></div>
+        <div class="phase"><div class="phase-num">P1</div><div class="phase-name">Design</div><div class="phase-q">"What are we building?"</div><div class="phase-desc">Architecture, UI/UX, data models, API contracts, tech stack decisions.</div></div>
+        <div class="phase"><div class="phase-num">P2</div><div class="phase-name">Development</div><div class="phase-q">"Does it work?"</div><div class="phase-desc">Implementation, testing, code review, documentation. Builder agents dominant.</div></div>
+        <div class="phase"><div class="phase-num">P3</div><div class="phase-name">Deployment</div><div class="phase-q">"Is it safe to ship?"</div><div class="phase-desc">CI/CD, staging QA, canary deploys, monitoring, rollback procedures.</div></div>
+        <div class="phase"><div class="phase-num">P4</div><div class="phase-name">Debugging</div><div class="phase-q">"What broke and why?"</div><div class="phase-desc">Root cause analysis, fix, regression testing, post-mortem. Investigate-first.</div></div>
+      </div>
+      <p><strong>4D Priority Scoring:</strong> Phase Urgency (0-10) × 0.35 + Dependency Impact (0-10) × 0.30 + Business Impact (0-10) × 0.25 + Resource Efficiency (0-10) × 0.10. Tasks scoring ≥7.0 get immediate allocation; 4.0-6.9 are queued; below 4.0 goes to backlog.</p>
+      <p><strong>Agent Allocation:</strong> Eligible agents are filtered by phase compatibility, tool availability, and dependency status. Each is scored on context similarity (50%), specialization overlap (35%), and current load (15%). Highest scorer wins.</p>
+      <p><strong>Orchestration patterns:</strong> Sequential chain (A→B→C), parallel fan-out (A→[B,C,D]), aggregation fan-in ([A,B,C]→E), conditional branch (A→decision→B or C).</p>
+    </div>
+
+    <div class="comp">
+      <div class="comp-header">
+        <span class="comp-num">04</span>
+        <div class="comp-name">Rostr Hub — Agent Operating System</div>
+      </div>
+      <div class="comp-full">Persistent reference architecture with four-level state management</div>
+      <p>The Hub is what makes knowledge <strong>compound</strong> across sessions instead of evaporating. Four levels of state:</p>
+      <ul>
+        <li><strong>Level 1 — Session State (ephemeral):</strong> Active tasks, in-progress work. In-memory / Redis cache.</li>
+        <li><strong>Level 2 — Project State (persistent):</strong> Decisions, artifacts, learnings, history. File-based + vector DB. This is where the compounding happens.</li>
+        <li><strong>Level 3 — Organization State (evolving):</strong> Identity, ICP, positioning, team structure. Version-controlled file store.</li>
+        <li><strong>Level 4 — Agent State (portable):</strong> Skills, preferences, calibration, performance stats. Agent-specific namespace.</li>
+      </ul>
+      <p>Cross-namespace access requires permission. Knowledge retrieval uses hierarchical credibility — not all sources are equal. Every project gets a directory under <code style="font-family:var(--mono);color:var(--accent);">rostr-hub/projects/{id}/</code> with knowledge-base, learnings.jsonl, timeline.jsonl, and checkpoints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Links & Resources</div>
+    <h2>Everything ROSTR</h2>
+    <div class="links-card">
+      <div class="link-row">
+        <span class="icon">📄</span>
+        <div><strong>Full Academic Paper</strong><br><a href="https://zenodo.org/records/19550414" target="_blank">zenodo.org/records/19550414</a><br><span>DOI: 10.5281/zenodo.19550414 — The complete published paper with architecture diagrams, algorithms, and implementation templates.</span></div>
+      </div>
+      <div class="link-row">
+        <span class="icon">🌐</span>
+        <div><strong>ROSTR Paper Website</strong><br><a href="https://rostr-paper.vercel.app" target="_blank">rostr-paper.vercel.app</a><br><span>Dedicated site for the paper — clean presentation, easy to share.</span></div>
+      </div>
+      <div class="link-row">
+        <span class="icon">📋</span>
+        <div><strong>Case Study</strong><br><a href="case-studies.html#rostr" target="_blank">pat-portfolio-mu.vercel.app/case-studies.html#rostr</a><br><span>Project documents, metrics, and system design walkthrough.</span></div>
+      </div>
+      <div class="link-row">
+        <span class="icon">🤖</span>
+        <div><strong>Gency AI — Built on ROSTR</strong><br><a href="https://gencyai.vercel.app" target="_blank">gencyai.vercel.app</a><br><span>Agent development agency that uses ROSTR to turn SOPs into intelligent agents. Interactive demo live.</span></div>
+      </div>
+      <div class="link-row">
+        <span class="icon">📚</span>
+        <div><strong>Master Knowledge Base</strong><br><a href="MASTER_KB.md" target="_blank">pat-portfolio-mu.vercel.app/MASTER_KB.md</a><br><span>Comprehensive KB with full ROSTR implementation guide (CLAUDE.md format).</span></div>
+      </div>
+      <div class="link-row">
+        <span class="icon">💻</span>
+        <div><strong>GitHub</strong><br><a href="https://github.com/diamitani" target="_blank">github.com/diamitani</a><br><span>Source repositories for ROSTR-based projects including Your48, ArtistEPKs, and the portfolio site.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE IT RUNS -->
+<section class="section-alt">
+  <div class="section-inner">
+    <div class="section-label">Production usage</div>
+    <h2>Where ROSTR runs today</h2>
+    <div class="comp">
+      <div class="comp-header"><span class="comp-num">🏢</span><div class="comp-name">Gency AI — Project Intake System</div></div>
+      <p>The ROSTR framework powers the project intake system at Gency AI. When a client submits a raw SOP or idea — notes, files, links, a one-line description — PAL compiles the intent, NPAO classifies the work phase and scores priority, and the system outputs a complete project package: knowledge base, PRD, architecture diagram, reporting framework, and phased build plan. <strong>Idea → fully-scoped agent: hours → under 30 minutes.</strong></p>
+    </div>
+    <div class="comp">
+      <div class="comp-header"><span class="comp-num">🤖</span><div class="comp-name">Gency AI — Agent Development Agency</div></div>
+      <p>The agency's core product pipeline runs on ROSTR: JTBD Analysis captures the operator's functional requirements → PAL/NLP extracts and compiles the intent → the ROSTR System delivers the agent, workflow, or skill. Every client engagement from SOP to deployed agent follows this path.</p>
+    </div>
+    <div class="comp">
+      <div class="comp-header"><span class="comp-num">🏛️</span><div class="comp-name">Your48 — Civic Intelligence Platform</div></div>
+      <p>The data sync pipeline that ingests 1,500+ business licenses from Chicago Data Portal daily uses ROSTR's NPAO task router for phase classification and cron orchestration. $0/month infrastructure on Vercel free tier.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://zenodo.org/records/19550414">Zenodo</a>
+    <a href="https://rostr-paper.vercel.app">ROSTR Paper</a>
+    <a href="https://gencyai.vercel.app">Gency AI</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="About Patrick Diamitani — AI systems builder, GTM engineer, precinct captain, and founder based in Chicago.">
+<title>About — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+.nav-cta:hover { opacity: 0.85; }
+
+.page { padding-top: 96px; }
+.section { padding: 60px 2rem; }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+.section h1 { font-size: 40px; font-weight: 540; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 1.5rem; }
+.section h2 { font-size: 24px; font-weight: 540; margin-bottom: 1rem; letter-spacing: -0.3px; margin-top: 3rem; }
+.section p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+
+.timeline { margin-top: 2rem; }
+.timeline-item {
+  display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline-date { font-size: 12px; color: var(--dim); font-weight: 500; padding-top: 3px; }
+.timeline-role { font-size: 16px; font-weight: 600; }
+.timeline-org { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.timeline-desc { font-size: 13px; color: var(--dim); line-height: 1.5; }
+
+.certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 12px; margin-top: 1.5rem; }
+.cert {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px;
+}
+.cert h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.cert p { font-size: 12px; color: var(--muted); margin: 0; }
+
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); background: var(--bg); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  .section h1 { font-size: 30px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo"><img src="public/logo.svg" alt="Diamitani Industries" style="height:28px;display:block"></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="about.html" class="active">About</a>
+      <a href="music.html">Music</a>
+      <a href="photography.html">Photos</a>
+      <a href="MASTER_KB.md">KB</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">About me</div>
+    <h1>I build systems that ship — and the frameworks that let others do the same.</h1>
+    <p>
+      I'm a production AI systems builder who lives at the intersection of engineering and go-to-market. 
+      My career path didn't start in code — it started in enterprise sales at Uber and Upwork, where I 
+      spent years understanding how revenue teams actually work. That experience is why I build AI 
+      differently: every system I design ships with the operator in mind, not just the architecture.
+    </p>
+    <p>
+      Today, I lead AI & Automation for a 50+ person GTM organization at Atlas HXM, a global 
+      Employer-of-Record platform. I own production AI from problem framing with the VP of Growth 
+      through architecture, build, reliability, and operator adoption. I've shipped 8+ production 
+      automations that auto-screen deals against compliance frameworks, prepare reps for calls, 
+      automate post-call follow-ups, and govern enrichment spend — all built on hybrid architectures 
+      where LLMs handle the messy text and deterministic code makes every decision auditable.
+    </p>
+    <p>
+      I'm also the author of ROSTR, a published framework for production-grade multi-agent systems 
+      that formalizes how to compile intent, retrieve knowledge, classify work phases, allocate agents, 
+      and persist state across sessions. The framework is the backbone of the Center of Excellence 
+      system I built at Atlas, which cuts idea-to-scoped-project from 4–8 hours to under 30 minutes.
+    </p>
+    <p>
+      Outside of work, I serve as a precinct captain for Chicago's 48th Ward, where I built Your48 — 
+      a civic intelligence platform connecting residents in Edgewater, Uptown, and Andersonville to 
+      their local government. It handles precinct directory, business licenses, constituent intake, 
+      and a public ward dashboard — all at $0/month infrastructure cost.
+    </p>
+    <p>
+      I split my time between building, writing, music, and photography. I believe the best systems 
+      are invisible — they do the work so people don't have to think about them. I build with that 
+      principle every day.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="section-inner">
+    <h2>What I believe</h2>
+    <p>
+      <strong>AI should be boring.</strong> The best AI systems aren't flashy demos — they're the ones 
+      that run silently, reliably, and operators forget exist because they just work. I build AI that 
+      operates like plumbing, not fireworks.
+    </p>
+    <p>
+      <strong>Rules live in code, not in the model's head.</strong> Every production system I build 
+      uses LLMs for what they're good at (reading messy text) and deterministic code for what matters 
+      (making decisions that need to be repeatable, auditable, and legally defensible).
+    </p>
+    <p>
+      <strong>Ship for the operator.</strong> A system that only the builder can run doesn't count. 
+      I ship 30+ reusable Claude skills and agents so non-technical reps can self-serve — because 
+      scaling to 50 users shouldn't scale the risk.
+    </p>
+    <p>
+      <strong>Civic infrastructure matters.</strong> I built Your48 because government technology 
+      shouldn't cost $50,000 in consulting fees. It should be fast, transparent, and nearly free 
+      to operate — and it should make residents' lives measurably better.
+    </p>
+
+    <h2>Career timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2025 – Present</div>
+        <div>
+          <div class="timeline-role">GTM AI & Automation Manager</div>
+          <div class="timeline-org">Atlas HXM · Chicago, IL</div>
+          <div class="timeline-desc">Lead AI & Automation for 50+ person GTM org. 8+ production automations live, 30+ Claude skills shipped, Center of Excellence framework.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024 – Present</div>
+        <div>
+          <div class="timeline-role">AI Engineer & Founder</div>
+          <div class="timeline-org">GPTPAT · Chicago, IL</div>
+          <div class="timeline-desc">Production AI for SMB/mid-market: chatbots, email automation, ed-tech, Shopify workflows. Built on Voiceflow, OpenAI, Make, Vercel, Supabase.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2023 – 2024</div>
+        <div>
+          <div class="timeline-role">Founder, Sales Systems & GTM</div>
+          <div class="timeline-org">RevEnabled · Chicago, IL</div>
+          <div class="timeline-desc">GTM consulting: Dark Roast Media ($1M→$3M ARR), Rand McNally Rand Fleet ($5M pipeline, 2,000% engagement lift).</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2022 – 2023</div>
+        <div>
+          <div class="timeline-role">Enterprise BDR</div>
+          <div class="timeline-org">Uber (Uber for Business) · Chicago, IL</div>
+          <div class="timeline-desc">$947K+ gross bookings, led hiring cohort in quota. 2,000+ emails / 250 dials/week to C-suite/VP buyers.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2019 – 2021</div>
+        <div>
+          <div class="timeline-role">Senior Enterprise BDR</div>
+          <div class="timeline-org">Upwork · Chicago, IL</div>
+          <div class="timeline-desc">Top 10% on 60+ team; #1 connection rate (100+ dials/day). Fortune 500 strategic outsourcing use cases.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2016 – 2018</div>
+        <div>
+          <div class="timeline-role">Founding AE / Portfolio Associate / Partner</div>
+          <div class="timeline-org">Techstars · DreamItReel · Omicon</div>
+          <div class="timeline-desc">Sales infra for 2ndKitchen & Clyde (acquired), Rheaply ($40M). DreamItReel: $2M+ revenue, 40% YoY. Omicon: 150+ events, 80K attendees.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="certs">
+      <div class="cert">
+        <h3>AWS Certified AI Practitioner</h3>
+        <p>May–Jul 2025 · Per Scholas AWS re/Start</p>
+      </div>
+      <div class="cert">
+        <h3>AWS Certified Cloud Practitioner</h3>
+        <p>Dec 2024–Apr 2025 · Per Scholas AWS re/Start</p>
+      </div>
+      <div class="cert">
+        <h3>B.S. Economics</h3>
+        <p>St. John's University, Tobin College of Business · 2009–2014</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="https://your48.vercel.app">Your48</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+    <a href="MASTER_KB.md">Knowledge Base</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

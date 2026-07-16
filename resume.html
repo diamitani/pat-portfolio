@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Patrick Diamitani — Full Resume. FDE / GTM / AI Engineer. Production AI systems builder.">
+<title>Resume — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
+}
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+
+.page { padding-top: 96px; }
+.resume { max-width: 900px; margin: 0 auto; padding: 60px 2rem; }
+.resume h1 { font-size: 36px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+.contact-line { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.contact-line a { color: var(--muted); text-decoration: none; }
+.target { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+.summary { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--border); }
+
+h2 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--accent); margin: 28px 0 12px; font-weight: 600;
+  border-bottom: 1.5px solid var(--text); padding-bottom: 4px;
+}
+.skills-block { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 6px; }
+.skills-block strong { color: var(--text); }
+
+.job { margin-bottom: 18px; }
+.job-head { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: baseline; margin-bottom: 2px; }
+.job-title { font-size: 14px; font-weight: 700; }
+.job-meta { font-size: 12px; color: var(--dim); white-space: nowrap; }
+.job-sub { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.job ul { margin: 4px 0 0; padding-left: 1.2em; }
+.job li { font-size: 13px; color: var(--muted); margin-bottom: 3px; line-height: 1.5; }
+
+.edu-row { display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 13px; margin-bottom: 4px; }
+.edu-row strong { color: var(--text); }
+.edu-row span { color: var(--dim); }
+
+.impact-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+.impact-table th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+.impact-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--muted); }
+.impact-table td:first-child { font-weight: 600; color: var(--text); }
+
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); margin-top: 60px; }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+.dl-btns { display: flex; gap: 10px; margin-bottom: 32px; }
+.dl-btn {
+  padding: 8px 20px; border-radius: 8px; font-size: 12px; font-weight: 600;
+  text-decoration: none; transition: opacity .15s;
+}
+.dl-btn.primary { background: var(--cream); color: var(--ink); }
+.dl-btn.ghost { border: 1px solid var(--border); color: var(--muted); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .resume h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo"><img src="public/logo.svg" alt="Diamitani Industries" style="height:28px;display:block"></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="case-studies.html">Studies</a>
+      <a href="resume.html" class="active">Resume</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+<div class="resume">
+
+<div class="dl-btns">
+  <a href="MASTER_KB.md" class="dl-btn primary">📄 Knowledge Base</a>
+  <a href="case-studies.html" class="dl-btn ghost">Case Studies →</a>
+</div>
+
+<h1>Patrick Diamitani</h1>
+<div class="contact-line">
+  Chicago, IL · Open to relocation · 319.930.0290 ·
+  <a href="mailto:patrick.diamitani@gmail.com">patrick.diamitani@gmail.com</a> ·
+  <a href="https://linkedin.com/in/Diamitani">linkedin.com/in/Diamitani</a> ·
+  <a href="https://instagram.com/iampatd">@iampatd</a>
+</div>
+<div class="target">Forward Deployed Engineer · GTM / Applied AI Engineer · AI Solutions Engineer</div>
+
+<p class="summary">
+  Production AI systems builder who embeds with GTM and revenue teams, turns messy business rules into reliable workflows, and ships LLM + deterministic systems that operators actually use. Currently lead AI & Automation for a 50+ person GTM org at Atlas HXM: 8+ production automations live, ~242 pipeline deals auto-screened with auditable verdicts, and a post-sales AI pipeline recovered from 84% failure to stable end-to-end delivery. Combines enterprise sales DNA (Uber, Upwork, Techstars) with hands-on engineering (n8n, Azure OpenAI, HubSpot/Clay APIs, Claude Agent SDK, JavaScript rules engines, AWS). Published author of the ROSTR multi-agent framework (Zenodo, 2026).
+</p>
+
+<h2>Technical Skills</h2>
+<div class="skills-block">
+  <strong>AI / LLM systems:</strong> Azure OpenAI (GPT-4o / GPT-5-chat), Claude + Claude Skills / Agent SDK, OpenAI Assistants API & Custom GPTs, Google Gemini, AWS Bedrock, retrieval & grounding, prompt + eval harnesses, hybrid LLM + deterministic decision engines
+</div>
+<div class="skills-block">
+  <strong>Orchestration & APIs:</strong> n8n (production workflows, webhooks, idempotency, dry-run gates), custom JavaScript rules engines, MCP tool connectors, REST APIs, Make.com, Zapier
+</div>
+<div class="skills-block">
+  <strong>GTM data stack:</strong> HubSpot API (CRM properties, workflows, attribution), Clay (+ credit governance), Amplemarket, ZoomInfo, Avoma, Factors.ai, Salesforce, Apollo.io
+</div>
+<div class="skills-block">
+  <strong>Cloud & delivery:</strong> AWS (Certified Cloud Practitioner + AI Practitioner — EC2, S3, IAM, Lambda, VPC, Bedrock), Azure Blob Storage, Vercel, Supabase, Docker, Microsoft 365
+</div>
+<div class="skills-block">
+  <strong>Languages & web:</strong> JavaScript / TypeScript, Python, React, Node.js, SQL, HTML/CSS
+</div>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Atlas HXM — GTM AI & Automation Manager</div>
+    <div class="job-meta">2025 – Present · Chicago, IL</div>
+  </div>
+  <div class="job-sub">AI & Automation lead for a 50+ person GTM organization at a global Employer-of-Record (EOR) platform.</div>
+  <ul>
+    <li><strong>EOR Compliance Checker (v5):</strong> 46-node n8n system auto-screens pipeline deals against 30-sector worksheet. Hybrid LLM + deterministic JS engine. Live across ~242 deals; corrected 103 mis-tagged deals; 16 unit tests; 238/238 clean writes.</li>
+    <li><strong>Post-Sales Call Automation:</strong> Recovered failing multi-agent pipeline (21/25 failing) by replacing dead Azure AI Search with deterministic blob lookups. 882KB → 295KB context. Stable end-to-end.</li>
+    <li><strong>Pre-Sales Call Automation:</strong> Meeting booked → prep note within hours. Event trigger defeats time-zone failures. Factors.ai enrichment.</li>
+    <li><strong>Chatbot MQL + Attribution:</strong> AI classify-route + CRM attribution. Recovered 364 historical contacts. Idempotency-gated.</li>
+    <li><strong>Partner PQL / Entity Readiness:</strong> PQL routing; weekly country hire-readiness diff reports.</li>
+    <li><strong>SDR-Agency Prospecting (AGS):</strong> Full supply chain — 5,398-contact master, round-robin pod assignment, APAC filter, ICP screening. 100% CRM-safe.</li>
+    <li><strong>Clay Credit Governance:</strong> Traced 515K credit spike. Built enrichment template with ICP gate, 3 build profiles, weekly review guardrails.</li>
+    <li><strong>Platform & CoE:</strong> 30+ Claude skills/agents for GTM self-serve; CoE cuts idea → scoped project from 4–8 hrs to &lt;30 min.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">GPTPAT — AI Engineer & Founder · Scalytics.io — GTM Engineer (PT)</div>
+    <div class="job-meta">2024 – Present</div>
+  </div>
+  <ul>
+    <li><strong>GPTPAT:</strong> Production AI for SMB/mid-market — recruiting chatbot (Voiceflow/OpenAI), CSV outreach (Make/Vercel/Supabase), ed-tech (Gemini TTS), Shopify workflows.</li>
+    <li><strong>Gency AI:</strong> Agent development & adoption agency. ROSTR-powered SOP-to-agent pipeline. 4 service verticals. Live at gencyai.vercel.app.</li>
+    <li><strong>Scalytics (Apr 2025–):</strong> GTM systems for private-AI / federated-data startup — ICP, outbound tooling, Make.com ↔ Zoho/HubSpot automations.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">RevEnabled — Founder, Sales Systems & GTM Consulting</div>
+    <div class="job-meta">Apr 2023 – Dec 2024</div>
+  </div>
+  <ul>
+    <li><strong>Dark Roast Media:</strong> Outbound ops (HubSpot/Reply.io); 60K leads; 500 emails/day @ 40% open / 12% reply; $1M → $3M ARR.</li>
+    <li><strong>Rand McNally (Rand Fleet):</strong> Playbook + automation for 6 reps; 2,000% engagement lift; 200K+ emails @ 50% open; ~$5M pipeline.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Uber — Enterprise BDR (Uber for Business) · Upwork — Senior Enterprise BDR</div>
+    <div class="job-meta">2019 – 2023</div>
+  </div>
+  <ul>
+    <li><strong>Uber:</strong> $947K+ gross bookings; 2,000+ emails / 250 dials/week to C-suite/VP; led hiring cohort in quota.</li>
+    <li><strong>Upwork:</strong> Top 10% on 60+ team; #1 connection rate (100+ dials/day); Fortune 500 strategic use cases.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Techstars Portfolio Associate · DreamItReel Founding AE · Omicon Founding Partner</div>
+    <div class="job-meta">2016 – 2018</div>
+  </div>
+  <ul>
+    <li>Techstars: sales infra for 2ndKitchen & Clyde (acquired), Rheaply ($40M). DreamItReel: $2M+ revenue, 40% YoY, team of 5. Omicon: 150+ events, 80K attendees, $3M+ revenue.</li>
+  </ul>
+</div>
+
+<h2>Civic & Community Leadership</h2>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Precinct Captain · 48th Ward, Chicago</div>
+    <div class="job-meta">2024 – Present</div>
+  </div>
+  <ul>
+    <li>Built <strong>Your48</strong> (your48.vercel.app) — civic intelligence platform for Edgewater, Uptown, and Andersonville. Precinct directory with interactive map, 1,500+ business license database, constituent intake forms, ward dashboard.</li>
+    <li>ROSTR-powered data sync pipeline ingests Chicago Data Portal daily; $0/month infrastructure on Vercel free tier.</li>
+  </ul>
+</div>
+
+<h2>Education & Certifications</h2>
+<div class="edu-row">
+  <div><strong>Per Scholas — AWS re/Start</strong> · AWS Certified AI Practitioner (2025) · AWS Certified Cloud Practitioner (2025)</div>
+  <span>Chicago, IL</span>
+</div>
+<div class="edu-row" style="margin-top:4px;">
+  <div><strong>St. John's University, Tobin College of Business</strong> · B.S. Economics · Entrepreneurial Society co-founder</div>
+  <span>2009 – 2014</span>
+</div>
+
+<h2>Publications</h2>
+<div class="skills-block">
+  <strong>ROSTR: A Unified Architecture for Production-Grade Multi-Agent Systems with Phase-Aware Orchestration and Persistent Knowledge Compounding.</strong> Patrick Diamitani. April 2026. DOI: <a href="https://zenodo.org/records/19550414" style="color:var(--accent2);">10.5281/zenodo.19550414</a>
+</div>
+
+<h2>Selected Impact</h2>
+<table class="impact-table">
+  <tr><th>Metric</th><th>Result</th></tr>
+  <tr><td>Production GTM automations live</td><td>8+</td></tr>
+  <tr><td>Pipeline deals auto-screened (auditable)</td><td>~242</td></tr>
+  <tr><td>Post-sales AI reliability</td><td>21/25 failing → stable E2E</td></tr>
+  <tr><td>Idea → scoped project package</td><td>4–8 hrs → &lt;30 min</td></tr>
+  <tr><td>Reusable GTM Claude skills/agents</td><td>30+</td></tr>
+  <tr><td>Enterprise bookings (Uber)</td><td>$947K+</td></tr>
+  <tr><td>Consulting pipeline (Rand Fleet)</td><td>~$5M</td></tr>
+  <tr><td>Enrichment credit spike governed</td><td>515K traced to root cause</td></tr>
+  <tr><td>SDR-agency contact master</td><td>5,398</td></tr>
+  <tr><td>Ward businesses catalogued (Your48)</td><td>~1,562</td></tr>
+</table>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="https://your48.vercel.app">Your48</a>
+    <a href="https://zenodo.org/records/19550414">ROSTR Paper</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

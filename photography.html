@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Photography by Patrick Diamitani — coming soon.">
+<title>Photography — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+
+.page {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding-top: 96px; text-align: center;
+}
+.page-inner { max-width: 500px; padding: 2rem; }
+.page-icon { font-size: 64px; margin-bottom: 1.5rem; }
+.page h1 { font-size: 32px; font-weight: 540; margin-bottom: 1rem; letter-spacing: -0.5px; }
+.page p { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 2rem; }
+.page a {
+  display: inline-block; padding: 10px 24px; border-radius: 8px;
+  background: var(--cream); color: var(--ink); text-decoration: none;
+  font-size: 14px; font-weight: 600; transition: opacity .15s;
+}
+.page a:hover { opacity: 0.85; }
+
+.footer { padding: 24px 2rem; text-align: center; border-top: 1px solid var(--border); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo"><img src="public/logo.svg" alt="Diamitani Industries" style="height:28px;display:block"></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="photography.html" class="active">Photos</a>
+      <a href="MASTER_KB.md">KB</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-inner">
+    <div class="page-icon">📷</div>
+    <h1>Photography</h1>
+    <p>I'll be sharing photography — street shots, portraits, and whatever catches my eye in Chicago and beyond. This page is coming soon.</p>
+    <a href="./">Back to portfolio</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

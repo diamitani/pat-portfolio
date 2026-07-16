@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Music & Comedy by Patrick Diamitani — Original tracks, visual albums, and stand-up comedy.">
+<title>Music — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,9,12,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--cream); color: var(--ink); text-decoration: none; }
+
+.page { padding-top: 96px; }
+
+.section { padding: 80px 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+.section h2 { font-size: 36px; font-weight: 540; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 1rem; }
+.section p.subtitle { font-size: 16px; color: var(--muted); max-width: 600px; margin-bottom: 2rem; line-height: 1.5; }
+
+/* VIDEO GRID */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.video-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; transition: border-color .2s;
+}
+.video-card:hover { border-color: var(--accent); }
+.video-embed {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  background: #000;
+}
+.video-embed iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: none;
+}
+.video-info { padding: 16px 20px; }
+.video-info h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.video-info .tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); font-weight: 700; }
+
+/* CHANNEL SECTION */
+.channel-section { padding: 80px 2rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.channel-inner { max-width: 900px; margin: 0 auto; }
+.channel-card {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px; margin-bottom: 20px; display: flex; gap: 24px; align-items: center;
+}
+.channel-icon { font-size: 48px; flex-shrink: 0; width: 64px; text-align: center; }
+.channel-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+.channel-info p { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.channel-link {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px;
+  color: var(--accent2); text-decoration: none; font-weight: 600;
+}
+.channel-link:hover { text-decoration: underline; }
+
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .section h2 { font-size: 26px; }
+  .channel-card { flex-direction: column; text-align: center; }
+  .video-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">Patrick <span>Diamitani</span></a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="rostr.html">ROSTR</a>
+      <a href="case-studies.html">Studies</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+      <a href="music.html" class="active">Music</a>
+      <a href="photography.html">Photos</a>
+    </div>
+    <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- MUSIC -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Original Music</div>
+    <h2>Tracks & Production</h2>
+    <p class="subtitle">Original compositions and productions. More coming.</p>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/dNJgW6oE8ew" title="Sunshine" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Original Track</div>
+          <h3>Sunshine</h3>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/hQgNBccj9gg" title="Harp About It" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Original Track</div>
+          <h3>Harp About It</h3>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/iSTu9kgrmFU" title="Sway" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Original Track</div>
+          <h3>Sway</h3>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ZLregHRI40E" title="Deep" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Original Track</div>
+          <h3>Deep</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMEDY -->
+<section class="channel-section">
+  <div class="channel-inner">
+    <div class="section-label" style="margin-bottom:1.5rem;">Comedy & Visual</div>
+    <div class="video-grid" style="margin-bottom: 2rem;">
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/UKmPhOkkJgY" title="Patrick Comedy Open Mic" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Stand-Up Comedy</div>
+          <h3>Comedy Open Mic — High Ground Coffee, Iowa City</h3>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/4tRS-zfshC4" title="12!30 - A Visual Album" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="tag">Visual Album</div>
+          <h3>12!30 — A Visual Album</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Subscribe</div>
+    <h2>YouTube Channels</h2>
+    <p class="subtitle">Follow for new music, comedy sets, and visual projects.</p>
+    <div class="channel-card">
+      <div class="channel-icon">🎵</div>
+      <div class="channel-info">
+        <h3>Pat Dia — Topic</h3>
+        <p>Original music and productions. Auto-generated by YouTube Music.</p>
+        <a href="https://www.youtube.com/channel/UCdPNIf6ug_MxkMO8u5XHgPg" class="channel-link" target="_blank">YouTube →</a>
+        <a href="https://open.spotify.com/artist/1ioo8TqdBc8RIzvSYkUS1y" class="channel-link" target="_blank" style="margin-left:16px;">Spotify →</a>
+      </div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">🎤</div>
+      <div class="channel-info">
+        <h3>Patrick Diamitani — @iampatd</h3>
+        <p>Stand-up comedy, visual albums, and personal channel. 8 videos and growing.</p>
+        <a href="https://www.youtube.com/@iampatd" class="channel-link" target="_blank">YouTube →</a>
+        <a href="https://open.spotify.com/artist/0N3LRUvTtIok9S9z45ONvQ" class="channel-link" target="_blank" style="margin-left:16px;">Spotify →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="https://instagram.com/iampatd">@iampatd</a>
+    <a href="https://www.youtube.com/@iampatd">YouTube</a>
+    <a href="https://gptpat.co">GPTPAT</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL · © 2026</p>
+</footer>
+
+</body>
+</html>

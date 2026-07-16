@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diamitani Industries — Logo</title>
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93;
+  --accent: #a78bfa; --accent2: #06b6d4; --gold: #c9a227;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 3rem 1rem; gap: 3rem; min-height: 100vh;
+}
+h2 {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;
+}
+.logo-panel {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 3rem; text-align: center;
+  width: 100%; max-width: 800px;
+}
+svg { max-width: 100%; height: auto; }
+.usage {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 1rem; width: 100%; max-width: 800px;
+}
+.usage-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem; text-align: center;
+}
+.usage-card h3 { font-size: 13px; margin-bottom: 0.5rem; }
+.usage-card p { font-size: 12px; color: var(--muted); }
+.dl-btn {
+  display: inline-block; margin-top: 0.75rem; padding: 8px 20px;
+  border-radius: 8px; background: var(--cream); color: var(--ink);
+  text-decoration: none; font-size: 12px; font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<div class="logo-panel">
+  <h2>Primary — Dark</h2>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="100%" stop-color="#06b6d4"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="50%" stop-color="#c4b5fd"/>
+        <stop offset="100%" stop-color="#06b6d4"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Monogram: DI mark -->
+    <rect x="30" y="28" width="88" height="88" rx="18" fill="none" stroke="url(#g2)" stroke-width="2.5"/>
+    <text x="74" y="87" text-anchor="middle" font-family="'Inter','Helvetica Neue',sans-serif" font-size="42" font-weight="700" fill="url(#g1)" letter-spacing="-1">DI</text>
+
+    <!-- Wordmark -->
+    <text x="145" y="68" font-family="'Inter','Helvetica Neue',sans-serif" font-size="28" font-weight="700" fill="#e4e5e7" letter-spacing="2.5">DIAMITANI</text>
+    <text x="145" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#8b8d93" letter-spacing="5">INDUSTRIES</text>
+
+    <!-- Established line -->
+    <line x1="145" y1="102" x2="340" y2="102" stroke="#23262d" stroke-width="1"/>
+    <text x="145" y="118" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#54565c" letter-spacing="3">EST. 2014 · NEW YORK CITY</text>
+  </svg>
+</div>
+
+<div class="logo-panel" style="background:#f8f8f6;">
+  <h2 style="color:#54565c;">Primary — Light</h2>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+    <defs>
+      <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#7c3aed"/>
+        <stop offset="100%" stop-color="#0891b2"/>
+      </linearGradient>
+      <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#7c3aed"/>
+        <stop offset="50%" stop-color="#8b5cf6"/>
+        <stop offset="100%" stop-color="#0891b2"/>
+      </linearGradient>
+    </defs>
+
+    <rect x="30" y="28" width="88" height="88" rx="18" fill="none" stroke="url(#g4)" stroke-width="2.5"/>
+    <text x="74" y="87" text-anchor="middle" font-family="'Inter','Helvetica Neue',sans-serif" font-size="42" font-weight="700" fill="url(#g3)" letter-spacing="-1">DI</text>
+
+    <text x="145" y="68" font-family="'Inter','Helvetica Neue',sans-serif" font-size="28" font-weight="700" fill="#171717" letter-spacing="2.5">DIAMITANI</text>
+    <text x="145" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#737373" letter-spacing="5">INDUSTRIES</text>
+
+    <line x1="145" y1="102" x2="340" y2="102" stroke="#d4d4d4" stroke-width="1"/>
+    <text x="145" y="118" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#a3a3a3" letter-spacing="3">EST. 2014 · NEW YORK CITY</text>
+  </svg>
+</div>
+
+<div class="logo-panel">
+  <h2>Monogram Only</h2>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+    <defs>
+      <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="100%" stop-color="#06b6d4"/>
+      </linearGradient>
+      <linearGradient id="g6" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="50%" stop-color="#c4b5fd"/>
+        <stop offset="100%" stop-color="#06b6d4"/>
+      </linearGradient>
+    </defs>
+    <rect x="16" y="16" width="128" height="128" rx="24" fill="#111318" stroke="url(#g6)" stroke-width="3"/>
+    <text x="80" y="108" text-anchor="middle" font-family="'Inter','Helvetica Neue',sans-serif" font-size="56" font-weight="700" fill="url(#g5)" letter-spacing="-2">DI</text>
+  </svg>
+</div>
+
+<div class="logo-panel">
+  <h2>Wordmark Only</h2>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+    <text x="0" y="38" font-family="'Inter','Helvetica Neue',sans-serif" font-size="26" font-weight="700" fill="#e4e5e7" letter-spacing="3">DIAMITANI</text>
+    <text x="0" y="56" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#8b8d93" letter-spacing="6">INDUSTRIES</text>
+    <text x="0" y="72" font-family="'Inter','Helvetica Neue',sans-serif" font-size="8" fill="#54565c" letter-spacing="3">EST. 2014 · NYC</text>
+  </svg>
+</div>
+
+<div class="usage">
+  <div class="usage-card">
+    <h3>🖥️ SVG Source</h3>
+    <p>All logos are inline SVG — scale to any size, zero quality loss</p>
+  </div>
+  <div class="usage-card">
+    <h3>🎨 Colors</h3>
+    <p>Lavender #a78bfa → Cyan #06b6d4 gradient mark. Clean Inter wordmark.</p>
+  </div>
+  <div class="usage-card">
+    <h3>📐 Grid</h3>
+    <p>88×88px monogram on 18px radius. 2.5px stroke. 28px wordmark.</p>
+  </div>
+</div>
+
+</body>
+</html>
