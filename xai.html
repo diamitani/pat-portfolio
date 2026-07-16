@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Patrick Diamitani — Forward Deployed AI Engineer application for xAI. Production AI systems, agent frameworks, published research.">
+<title>/xAI — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050508;--surface:#0c0d12;--surface2:#14151b;--border:#1e1f26;--text:#e6e6e8;--muted:#8c8d93;--dim:#55565c;--accent:#a78bfa;--accent2:#06b6d4;--gold:#c9a227;--cream:#e9e5dd;--ink:#1a1917;--font:'Inter',system-ui,sans-serif;--display:'Playfair Display',serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,8,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-weight:700;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:-0.3px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:460}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-cta{padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;background:var(--cream);color:var(--ink);text-decoration:none}
+.page{padding-top:96px}
+.section{padding:80px 2rem}
+.section-inner{max-width:900px;margin:0 auto}
+.sl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:0.75rem}
+h1{font-size:40px;font-weight:540;line-height:1.05;letter-spacing:-1px;margin-bottom:1rem}
+h1 em{font-family:var(--display);font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:24px;font-weight:540;line-height:1.1;letter-spacing:-0.5px;margin:3rem 0 1rem}
+h3{font-size:16px;font-weight:600;margin:2rem 0 0.75rem;color:var(--accent)}
+p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+p strong{color:var(--text)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:1.5rem 0}
+.met{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.met-n{font-size:24px;font-weight:700;color:var(--accent)}
+.met-l{font-size:11px;color:var(--muted);margin-top:4px}
+.evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:1.5rem 0}
+.ev{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px}
+.ev h4{font-size:14px;font-weight:600;margin-bottom:6px}
+.ev p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.q{border-left:3px solid var(--accent);padding:12px 20px;margin:1.5rem 0;font-style:italic;font-size:16px;color:var(--text);line-height:1.5}
+.links-row{display:flex;gap:16px;flex-wrap:wrap;margin:1.5rem 0}
+.lr{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .15s}
+.lr.primary{background:var(--cream);color:var(--ink)}
+.lr.primary:hover{opacity:0.85}
+.lr.ghost{border:1px solid var(--border);color:var(--muted)}
+.lr.ghost:hover{border-color:var(--accent);color:var(--text)}
+.footer{padding:48px 2rem;text-align:center;border-top:1px solid var(--border)}
+.fl{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.fl a{font-size:13px;color:var(--muted);text-decoration:none}.fl a:hover{color:var(--text)}
+.fb{font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:12px}
+.fc{font-size:12px;color:var(--dim)}
+@media(max-width:768px){h1{font-size:30px}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-inner">
+<a href="./" class="nav-logo">Diamitani <span>Industries</span></a>
+<div class="nav-links">
+<a href="./">Home</a>
+<a href="xai.html" class="active">/xAI</a>
+<a href="rostr.html">ROSTR</a>
+<a href="case-studies.html">Work</a>
+<a href="resume.html">Resume</a>
+</div>
+<a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+</div></nav>
+
+<div class="page">
+
+<section class="section"><div class="section-inner">
+<div class="sl">Targeted Application · /xAI</div>
+<h1>Forward Deployed <em>AI Engineer</em></h1>
+<p>I build production AI that ships. I've embedded with GTM teams, turned messy business rules into reliable systems, and shipped hybrid LLM + deterministic workflows that operators use every day. I also wrote the framework for it.</p>
+
+<div class="metrics">
+<div class="met"><div class="met-n">8+</div><div class="met-l">production AI systems live</div></div>
+<div class="met"><div class="met-n">~242</div><div class="met-l">deals auto-screened daily</div></div>
+<div class="met"><div class="met-n">46-node</div><div class="met-l">largest workflow shipped</div></div>
+<div class="met"><div class="met-n">Published</div><div class="met-l">multi-agent framework</div></div>
+<div class="met"><div class="met-n">AWS ×2</div><div class="met-l">certified practitioner</div></div>
+<div class="met"><div class="met-n">30+</div><div class="met-l">Claude skills/agents</div></div>
+</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="section-inner">
+<h2>What I build</h2>
+
+<h3>Production AI that operators trust</h3>
+<p>I shipped a <strong>46-node n8n workflow</strong> that auto-screens every deal entering the sales pipeline against a 30-sector compliance matrix. The LLM maps messy CRM text to canonical sectors; a deterministic JavaScript engine issues every verdict. <strong>Rules live in code, not in the model's head</strong> — that's the architectural decision that makes it durable, auditable, and legally defensible. 238/238 clean production writes before go-live, ~242 deals screened, 103 mis-tagged deals corrected.</p>
+
+<h3>Systems that survive failure</h3>
+<p>A multi-agent post-call automation was failing <strong>21 of 25 runs</strong> — a dead Azure AI Search index left four AI agents with no context. I didn't recreate the fragile index. I <strong>designed the failure point out</strong>: extract countries → ISO-3 codes → deterministic blob fetch. No search, no credentials to rotate, graceful fallback. Context dropped from 882KB to 295KB while groundedness improved. <strong>0/25 failing → stable end-to-end.</strong></p>
+
+<h3>Governed data pipelines</h3>
+<p>Enrichment credit spend spiked from under 15K/month to <strong>515K</strong>. I ran a full-year forensic audit across seven sheets, re-attributed unattributed spend, and shipped a governed enrichment template with ICP-fit gates, deduped phone waterfall, and three build profiles. Then installed a weekly credit review — the next spike gets caught in days, not months.</p>
+
+<h3>Agent teams for 50+ non-technical users</h3>
+<p>I shipped <strong>30+ reusable Claude skills and agents</strong> so reps and marketers can self-serve — prospecting engines, workflow architects, CRM analysts, case study builders, and content suites. The platform includes an agent factory that builds new skills from plain-English descriptions. Scaling to 50 users doesn't scale the risk.</p>
+
+<div class="q">"The core design decision — rules live in code, not in the model's head — is what makes it durable. Every system I build ships with the operator in mind, not just the architecture."</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="section-inner">
+<h2>The ROSTR Framework</h2>
+<p>I didn't just build agent systems — I <strong>formalized the architecture</strong>. The ROSTR Framework is a published, citable paper covering four components (PAL, RAG DAL, NPAO, Rostr Hub) and a 5D phase taxonomy for production-grade multi-agent orchestration. It's the engine behind Gency AI and a contribution to the field.</p>
+<div class="evidence-grid">
+<div class="ev"><h4>PAL — Prompt Abstraction Layer</h4><p>Transforms loose natural language into strict agent runtime manifests through a 5-stage compilation pipeline. No raw prompts — every invocation flows through compiled manifests.</p></div>
+<div class="ev"><h4>RAG DAL — Dynamic Acquisition Layer</h4><p>Multi-pass retrieval across three credibility tiers (academic → editorial → community). Confidence scoring weights source count, consistency, tier distribution, and recency.</p></div>
+<div class="ev"><h4>NPAO — Phase-Aware Orchestration</h4><p>5D phase taxonomy classifies every task (PreD → Debugging). 4D priority scoring. Agent allocation via vector similarity + specialization overlap + load scoring.</p></div>
+<div class="ev"><h4>Rostr Hub — Persistent State</h4><p>Four-level state management (session → project → org → agent). Knowledge compounds across sessions instead of evaporating.</p></div>
+</div>
+<div class="links-row">
+<a href="https://zenodo.org/records/19550414" class="lr primary" target="_blank">Full paper on Zenodo ↗</a>
+<a href="https://rostr-paper.vercel.app" class="lr ghost" target="_blank">rostr-paper.vercel.app</a>
+<a href="rostr.html" class="lr ghost">Full ROSTR deep-dive</a>
+</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="section-inner">
+<h2>Stack depth</h2>
+<div class="evidence-grid">
+<div class="ev"><h4>AI / LLM</h4><p>Azure OpenAI (GPT-4o/5), Claude SDK + Skills, OpenAI Assistants, Gemini, AWS Bedrock, RAG & grounding, prompt engineering</p></div>
+<div class="ev"><h4>Orchestration</h4><p>n8n (46-node production workflows, webhooks, idempotency), Make.com, custom JS rules engines, MCP, REST APIs</p></div>
+<div class="ev"><h4>Cloud / Infra</h4><p>AWS (EC2, S3, Lambda, Bedrock), Azure Blob Storage, Vercel, Supabase, Docker, GitHub Actions</p></div>
+<div class="ev"><h4>Languages</h4><p>JavaScript/TypeScript, Python, React, Node.js, Next.js, SQL, HTML/CSS, Tailwind</p></div>
+<div class="ev"><h4>GTM Stack</h4><p>HubSpot API, Clay, Salesforce, Amplemarket, ZoomInfo, Avoma, Factors.ai, Apollo.io</p></div>
+<div class="ev"><h4>Certifications</h4><p>AWS Certified AI Practitioner + AWS Certified Cloud Practitioner</p></div>
+</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="section-inner">
+<h2>Direct links</h2>
+<div class="links-row">
+<a href="resume.html" class="lr primary">Full Resume</a>
+<a href="case-studies.html" class="lr ghost">Case Studies (7)</a>
+<a href="rostr.html" class="lr ghost">ROSTR Framework</a>
+<a href="MASTER_KB.md" class="lr ghost">Knowledge Base</a>
+</div>
+<p style="margin-top:1rem;font-size:13px;color:var(--dim)">patrick.diamitani@gmail.com · 319.930.0290 · linkedin.com/in/diamitani · Chicago, IL</p>
+</div></section>
+
+</div>
+
+<footer class="footer">
+<div class="fb">Diamitani Industries, Inc. · NY C-Corp · Est. 2014</div>
+<div class="fl">
+<a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+<a href="https://instagram.com/iampatd">@iampatd</a>
+<a href="https://zenodo.org/records/19550414">ROSTR Paper</a>
+<a href="https://gencyai.vercel.app">Gency AI</a>
+<a href="mailto:patrick.diamitani@gmail.com">Email</a>
+</div>
+<p class="fc">Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · Chicago, IL</p>
+</footer>
+
+</body>
+</html>
