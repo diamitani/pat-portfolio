@@ -331,6 +331,34 @@ body {
       </div>
     </div>
 
+    <!-- CASE 8: Daily Prospect Automation -->
+    <div class="case-study" id="prospect-automation">
+      <div class="cs-header">
+        <div class="cs-tag">Sales Automation · Live Daily Pipeline</div>
+        <h2>08 — Daily Prospect Automation (Intent → Outreach)</h2>
+        <div class="cs-stack">n8n · HubSpot API · ZoomInfo · Factors.ai · Clay · Amplemarket · Custom JS Filters &amp; Round-Robin</div>
+      </div>
+      <div class="metric-bar">
+        <div class="met"><div class="met-n">100%</div><div class="met-l">workflow success (7 AM daily runs)</div></div>
+        <div class="met"><div class="met-n">75</div><div class="met-l">companies routed per week</div></div>
+        <div class="met"><div class="met-n">757</div><div class="met-l">companies in enrichment table</div></div>
+        <div class="met"><div class="met-n">55%+</div><div class="met-l">email open rate (industry ~20–25%)</div></div>
+      </div>
+      <h3>The Problem</h3>
+      <p>Buying-intent signals poured into the CRM from ZoomInfo and Factors.ai, but converting them into outbound meant a human manually filtering out customers, open deals, competitors, out-of-ICP and out-of-region accounts every day, then hand-assigning survivors to reps. Hot intent went cold in the queue.</p>
+      <h3>System Design</h3>
+      <p>A daily 7 AM n8n workflow pulls every company whose intent date fell in yesterday's window (~30 firmographic + intent properties), then marches them through a <strong>seven-node filter chain</strong>: employee-count gate (&lt;2,000), multi-signal APAC exclusion (location fields, country codes, domain TLD, name keywords — so blank fields can't hide an account), associated-deal / lifecycle / 30-day-activity gates, a competitor filter, and a school/government ICP filter that preserves NGOs. Survivors get deterministic round-robin territory routing (CRM owner ID, rep, email stamped), are batched to a Clay enrichment webhook with a CEO-fallback contact path, and logged to an n8n Data Table as the run's source of truth. Downstream, an LLM decision layer and Amplemarket sequences carry accounts into outreach, with automated daily batch-review reports scoring each company pursue/skip.</p>
+      <h3>Results</h3>
+      <p>Running live daily with a <strong>100% workflow success rate</strong> (avg 2m 43s/run), ~15 companies/day routed with zero manual triage, 757 companies in the enrichment table, ~100 leads enrolled ramping toward 3,000+, and a <strong>55%+ email open rate</strong> against a 35% target and ~20–25% industry average (172-send sequence at 43%).</p>
+      <div class="file-list">
+        <h4>📁 Project Documents</h4>
+        <div class="file-item"><span class="file-icon">📄</span> Architecture v2 — intent sources → CRM → filter chain → round-robin → Clay → LLM decision → Amplemarket</div>
+        <div class="file-item"><span class="file-icon">📊</span> Live Ops Dashboard — daily runs, success rate, Clay sends, ICP breakdown, open issues</div>
+        <div class="file-item"><span class="file-icon">📄</span> KPI Dashboard — open rate, enrollment, workflow health vs targets</div>
+        <div class="file-item"><span class="file-icon">📄</span> Daily Batch-Review Reports — per-company intent, contacts found, pursue/skip verdicts</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
