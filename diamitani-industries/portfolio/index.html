@@ -1,319 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patrick Diamitani — Enterprise AI Production · Agent Skills &amp; Product Library</title>
-<meta name="description" content="GTM AI &amp; Automation Manager building production AI systems that 50+ non-technical revenue teammates use every day — including a customer-facing AI agent that has already sourced a quarter-million-dollar deal and $520K+ in attributed pipeline.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<nav class="nav">
-  <a class="brand" href="https://diamitani.com">Patrick Diamitani<span class="brand-div">/</span><span class="brand-sub">Enterprise AI Production</span></a>
-  <div class="nav-links">
-    <a href="index.html#about">About</a>
-    <a href="index.html#library">Skill &amp; Product Library</a>
-    <a href="https://industries.diamitani.com">Industries</a>
-    <a href="https://music.diamitani.com">Music</a>
-    <a href="index.html#contact">Contact</a>
-    <a class="nav-cta" href="https://linkedin.com/in/diamitani" target="_blank" rel="noopener">LinkedIn ↗</a>
-  </div>
-</nav>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="description" content="Patrick Diamitani's enterprise AI production portfolio — a Skill &amp; Product Library of production systems used daily by a 50+ person GTM org. A division of Diamitani Industries, Inc.">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<title>Portfolio — Patrick Diamitani · Enterprise AI Production · Diamitani Industries</title>
+<style>
+:root {
+  /* Diamitani Industries house style — black + gold (dark by default) */
+  --bg: #050508;
+  --bg-2: #0c0d12;
+  --panel: #12131a;
+  --ink: #e6e6e8;
+  --ink-soft: #b4b5bb;
+  --muted: #8c8d93;
+  --border: #1e1f26;
+  --navy: #c9a227;        /* primary accent remapped to gold */
+  --navy-soft: #e0c25a;
+  --gold: #c9a227;
+  --success: #4ea87a;
+  --radius: 10px;
+  --shadow: 0 14px 32px rgba(0,0,0,.45);
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+:root[data-theme="dark"] {
+  --bg: #050508; --bg-2: #0c0d12; --panel: #12131a; --ink: #e6e6e8; --ink-soft: #b4b5bb;
+  --muted: #8c8d93; --border: #1e1f26; --navy: #c9a227; --navy-soft: #e0c25a; --gold: #c9a227;
+  --success: #4ea87a; --shadow: 0 14px 32px rgba(0,0,0,.45);
+}
+:root[data-theme="light"] {
+  /* optional warm light mode via the toggle */
+  --bg: #faf8f4; --bg-2: #f1ece2; --panel: #ffffff; --ink: #1c1b19; --ink-soft: #4a4742;
+  --muted: #7a766d; --border: #e4ddd0; --navy: #1b2a4a; --navy-soft: #2e4270; --gold: #a9752f;
+  --success: #2f6b4f; --shadow: 0 14px 32px rgba(28,27,25,.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+#app { max-width: 100%; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-family: var(--font-serif); line-height: 1.15; color: var(--ink); text-wrap: balance; }
+button { font-family: var(--font-body); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Enterprise AI Production · Agent Skills &amp; Product Library</div>
-    <h1>Patrick Diamitani</h1>
-    <p class="hero-tagline">GTM AI &amp; Automation Manager building production AI systems that 50+ non-technical revenue teammates use every day — including a customer-facing AI agent that has already sourced a quarter-million-dollar deal and $520K+ in attributed pipeline.</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-n">16</div><div class="stat-l">Systems in the library</div></div>
-      <div class="stat"><div class="stat-n">10</div><div class="stat-l">Live in production</div></div>
-      <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Daily non-technical users</div></div>
+.nav { position: sticky; top: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 28px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.brand { font-family: var(--font-serif); font-weight: 600; font-size: 17px; display: flex; align-items: center; gap: 8px; cursor: pointer; background: none; border: none; color: var(--ink); }
+.brand-div { color: var(--gold); }
+.brand-sub { font-family: var(--font-body); font-size: 10.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+.nav-links { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--ink-soft); }
+.nav-links button { background: none; border: none; color: inherit; font-size: 13.5px; cursor: pointer; }
+.nav-links a:hover, .nav-links button:hover { color: var(--navy); }
+.nav-cta { border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; }
+.theme-toggle { border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; background: var(--panel); cursor: pointer; font-size: 13px; color: var(--ink-soft); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14.5px; transition: transform .15s ease, box-shadow .15s ease; cursor: pointer; border: none; }
+.btn-primary { background: var(--navy); color: var(--bg); box-shadow: 0 6px 18px color-mix(in srgb, var(--navy) 30%, transparent); }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--ink-soft); }
+.btn-ghost:hover { color: var(--navy); border-color: var(--navy); }
+.btn:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.view { animation: fade-in .35s ease; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.hero { position: relative; padding: 96px 28px 60px; text-align: center; background: radial-gradient(120% 100% at 50% 0, color-mix(in srgb, var(--gold) 9%, var(--bg-2)) 0, var(--bg-2) 42%, var(--bg) 100%); border-bottom: 1px solid var(--border); overflow: hidden; }
+.hero-inner { max-width: 780px; margin: 0 auto; }
+.hero-eyebrow { font-size: 12px; color: var(--gold); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; font-weight: 600; }
+.hero h1 { font-size: clamp(38px, 7vw, 64px); font-weight: 600; letter-spacing: -.01em; }
+.hero-tagline { color: var(--ink-soft); font-size: 17.5px; max-width: 620px; margin: 20px auto 0; }
+.hero-stats { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 38px 0 30px; }
+.stat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 26px; min-width: 130px; }
+.stat-n { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; }
+.stat-l { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+.hero-cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+.about-section, .approach-section { padding: 68px 28px; border-bottom: 1px solid var(--border); }
+.about-inner { max-width: 840px; margin: 0 auto; }
+.about-section h2, .approach-section h2, .contact-section h2 { font-size: 30px; margin-bottom: 24px; }
+.about-text p { color: var(--ink-soft); font-size: 16px; margin-bottom: 15px; max-width: 72ch; }
+.highlights-block { margin-top: 36px; }
+.highlights-block h3 { font-size: 18px; margin-bottom: 15px; font-family: var(--font-serif); }
+.highlights-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.highlights-list li { position: relative; padding-left: 22px; color: var(--ink-soft); font-size: 14.5px; }
+.highlights-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+.approach-section { background: var(--bg-2); }
+.approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.approach-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.approach-card h3 { font-size: 16.5px; margin-bottom: 9px; color: var(--navy); font-family: var(--font-serif); }
+.approach-card p { font-size: 13.5px; color: var(--ink-soft); }
+
+.library { max-width: 1180px; margin: 0 auto; padding: 68px 28px; }
+.library-head { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.library-head h2 { font-size: 30px; }
+#search { background: var(--panel); border: 1px solid var(--border); color: var(--ink); border-radius: 8px; padding: 10px 15px; width: min(300px, 100%); font-size: 13.5px; font-family: var(--font-body); }
+#search:focus { outline: none; border-color: var(--navy); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+.filter-btn { background: var(--panel); border: 1px solid var(--border); color: var(--muted); border-radius: 999px; padding: 7px 15px; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all .15s; }
+.filter-btn:hover { color: var(--navy); }
+.filter-btn.active { background: var(--navy); color: var(--bg); border-color: var(--navy); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { display: flex; flex-direction: column; gap: 11px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform .18s ease, box-shadow .18s; position: relative; text-align: left; cursor: pointer; }
+.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; border-radius: var(--radius) var(--radius) 0 0; background: var(--cat-color, var(--navy)); }
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.card h3 { font-size: 18px; font-weight: 600; font-family: var(--font-serif); }
+.card-blurb { color: var(--ink-soft); font-size: 13.5px; flex-grow: 1; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 11px; }
+.card-demo { font-style: italic; }
+.card-cta { color: var(--navy); font-weight: 600; white-space: nowrap; }
+.empty { text-align: center; color: var(--muted); padding: 56px 0; }
+
+.badge { font-size: 10.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: .02em; }
+.type-badge { background: var(--bg-2); border: 1px solid var(--border); color: var(--ink-soft); }
+.status-badge { background: color-mix(in srgb, var(--success) 12%, transparent); color: var(--success); border: 1px solid color-mix(in srgb, var(--success) 35%, transparent); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 10.5px; color: var(--muted); background: var(--bg-2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 6px; }
+.chip { font-size: 11.5px; color: var(--ink); background: var(--bg-2); border: 1px solid var(--border); padding: 5px 11px; border-radius: 999px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.contact-section { padding: 76px 28px; text-align: center; background: var(--navy); }
+.contact-section h2, .contact-inner p { color: var(--bg); }
+.contact-inner p { max-width: 540px; margin: 0 auto 26px; font-size: 15.5px; opacity: .92; }
+.contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.contact-section .btn-primary { background: var(--bg); color: var(--navy); }
+.contact-section .btn-ghost { border-color: color-mix(in srgb, var(--bg) 35%, transparent); color: var(--bg); }
+
+.product-page { max-width: 1040px; margin: 0 auto; padding: 36px 28px 84px; }
+.crumbs { font-size: 12.5px; color: var(--muted); margin-bottom: 22px; display: flex; gap: 8px; }
+.crumbs button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12.5px; padding: 0; }
+.crumbs button:hover { color: var(--navy); }
+.product-hero { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+.product-hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 600; letter-spacing: -.01em; }
+.tagline { color: var(--ink-soft); font-size: 16px; margin: 13px 0 16px; max-width: 68ch; }
+.metric-callout { display: inline-block; font-weight: 600; color: var(--success); background: color-mix(in srgb, var(--success) 10%, transparent); border: 1px solid color-mix(in srgb, var(--success) 30%, transparent); border-radius: 8px; padding: 9px 15px; margin-bottom: 16px; font-size: 14px; }
+.product-body { display: grid; grid-template-columns: 1fr 280px; gap: 28px; align-items: start; }
+.side-panel { display: flex; flex-direction: column; gap: 14px; }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.panel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 11px; font-family: var(--font-body); font-weight: 700; }
+.panel-cta p { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 13px; }
+.panel-cta .btn { width: 100%; }
+.req-list { list-style: none; display: flex; flex-direction: column; gap: 7px; font-size: 13px; color: var(--ink-soft); }
+.req-list li::before { content: "\2713 "; color: var(--success); font-weight: 700; }
+
+.onesheet { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 34px; }
+.onesheet h2 { font-size: 19px; margin: 26px 0 11px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.onesheet h2:first-child { margin-top: 0; }
+.onesheet h3 { font-size: 16px; margin: 20px 0 9px; font-family: var(--font-body); font-weight: 700; }
+.onesheet p { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 11px; }
+.onesheet ul, .onesheet ol { margin: 0 0 13px 21px; color: var(--ink-soft); font-size: 14.5px; display: flex; flex-direction: column; gap: 6px; }
+.onesheet strong { color: var(--ink); }
+.onesheet code { font-family: var(--font-mono); font-size: 12px; background: var(--bg-2); border: 1px solid var(--border); padding: 2px 6px; border-radius: 5px; color: var(--navy); }
+.onesheet hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
+.table-wrap { overflow-x: auto; margin: 13px 0 18px; border: 1px solid var(--border); border-radius: 8px; }
+.onesheet table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.onesheet th { text-align: left; background: var(--bg-2); color: var(--muted); font-weight: 700; padding: 9px 13px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.onesheet td { padding: 9px 13px; border-bottom: 1px solid var(--border); color: var(--ink-soft); vertical-align: top; }
+.onesheet tr:last-child td { border-bottom: none; }
+
+.footer { border-top: 1px solid var(--border); padding: 26px 28px; background: var(--bg-2); }
+.footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 860px) {
+  .product-body { grid-template-columns: 1fr; }
+  .onesheet { padding: 22px 18px; }
+  .nav-links a:not(.nav-cta):not(:last-child), .nav-links button:not(:last-child) { display: none; }
+}
+</style>
+
+<div id="app">
+  <nav class="nav">
+    <button class="brand" id="nav-brand">Patrick Diamitani<span class="brand-div">/</span><span class="brand-sub">Diamitani Industries · Case Studies</span></button>
+    <div class="nav-links">
+      <a href="https://www.diamitani.com">Home</a>
+      <button id="nav-library">Case Studies</button>
+      <a href="https://industries.diamitani.com">Industries</a>
+      <a href="https://art.diamitani.com">Art</a>
+      <a href="https://music.diamitani.com">Music</a>
+      <button id="nav-about">About</button>
+      <button id="nav-contact">Contact</button>
+      <a class="nav-cta" href="https://linkedin.com/in/diamitani" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">◐</button>
     </div>
-    <div class="hero-cta-row">
-      <a href="#library" class="btn btn-primary">View the library ↓</a>
-      <a href="#about" class="btn btn-ghost">About Patrick</a>
+  </nav>
+  <div id="view-root"></div>
+  <footer class="footer">
+    <div class="footer-inner" style="flex-direction:column;gap:14px;align-items:stretch">
+      <div style="display:flex;flex-wrap:wrap;gap:14px 20px;justify-content:space-between;align-items:center">
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Diamitani Industries</div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px 18px;font-size:13px">
+          <a href="https://www.diamitani.com">Home</a>
+          <a href="https://portfolio.diamitani.com/#library" style="color:var(--navy);font-weight:600">Case Studies</a>
+          <a href="https://industries.diamitani.com">Industries</a>
+          <a href="https://art.diamitani.com">Art</a>
+          <a href="https://music.diamitani.com">Music</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--border);padding-top:14px">
+        <div>© 2026 Patrick Diamitani · A division of <a href="https://www.diamitani.com" style="color:inherit;text-decoration:underline">Diamitani Industries, Inc.</a> Case studies anonymized for public portfolio use.</div>
+        <div>pdiamitani@atlashxm.com · linkedin.com/in/diamitani</div>
+      </div>
     </div>
-  </div>
-</header>
+  </footer>
+</div>
 
-<section id="about" class="about-section">
-  <div class="about-inner">
-    <h2>About</h2>
-    <div class="about-text"><p>Patrick Diamitani owns AI strategy and automation across an entire go-to-market organization — sales, marketing, and revenue operations — at a global HR-tech (Employer of Record) platform with roughly 500 employees operating in 160+ countries. His mandate: build production systems that a non-technical team of 50+ reps and marketers can rely on daily, not demos that impress once and then quietly stop being used.</p>
-<p>Four themes run through everything in this library. <strong>Hybrid AI architecture</strong> — large language models handle what they&#x27;re good at (reading messy text, drafting, classification), while deterministic, unit-tested code handles anything that must be auditable, like compliance tiers or money. The system never just &quot;lets the AI decide&quot; on a consequential call. <strong>Production discipline</strong> — every build ships with dry-run tests, rollback plans, and shared error handling, because these systems run unattended on live revenue pipelines, not in a sandbox. <strong>Cost engineering</strong> — AI and data-enrichment spend gets measured and capped by design, not by asking people to be careful. <strong>Platform building</strong> — beyond any single automation, the real product is a reusable skill library, a project-intake system, and a build standard so the work compounds instead of resetting with every new request.</p>
-<p>The result is a portfolio that reads less like a collection of scripts and more like a small internal product organization: an AI agent with its own attribution model, a compliance engine with full audit trails, a cost-governance framework that turned an owned mistake into a permanent safeguard, and the standards layer that let one person&#x27;s work scale across fifty.</p></div>
-    <div class="highlights-block">
-      <h3>Career Highlights</h3>
-      <ul class="highlights-list"><li>Built and shipped a full-stack AI customer agent — chat interface, qualification pipeline, reporting warehouse, and revenue-attribution layer — that sourced a $250K deal traceable to a single conversation and $520K+ in attributed pipeline within its first four months live.</li><li>Designed and launched an automated compliance-screening system that corrected 100+ misclassified deals stuck in manual review and more than doubled detection of ineligible deals across the full sales pipeline, with a perfect production write record.</li><li>Diagnosed and rebuilt a four-agent, post-sales-call automation pipeline from a failing RAG-based design (a broken vector index causing the majority of failures) to a deterministic architecture — going from 0 successful end-to-end runs to fully verified in production.</li><li>Owned a runaway AI/data-enrichment spend incident end to end and redesigned the underlying system around a free eligibility gate and tiered cost profiles, cutting spend per record by roughly 70% by architecture, not vigilance.</li><li>Directed a nine-script enrichment pipeline for an outsourced sales-development pipeline, achieving confirmed 0% contact overlap against thousands of already-contacted records and 91% phone coverage.</li><li>Built and published a 40+ skill AI automation library plus a self-serve project-intake engine that cut idea-to-scoped-project time from 4–8 hours to under 30 minutes across a 50-person go-to-market org.</li></ul>
+<script src="data.js"></script>
+<script>
+const viewRoot = document.getElementById("view-root");
+
+function esc(s) { const d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+
+function renderHome() {
+  const n = SITE.products.length;
+  const live = SITE.products.filter(p => (p.status || "").toLowerCase().includes("live")).length;
+
+  const highlights = SITE.highlights.map(h => `<li>${h}</li>`).join("");
+  const approach = SITE.approach.map(a => `<div class="approach-card"><h3>${esc(a.title)}</h3><p>${a.desc}</p></div>`).join("");
+  const cats = SITE.categories;
+  const catButtons = cats.map(c => `<button class="filter-btn" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+
+  const cards = SITE.products.map(p => {
+    const blurb = p.portfolio_blurb || p.description_short || "";
+    const searchBlob = `${p.name} ${p.tagline} ${(p.tags || []).join(" ")}`.toLowerCase();
+    return `
+    <button class="card" style="--cat-color:${p.color}" data-cat="${esc(p.category)}" data-search="${esc(searchBlob)}" data-slug="${p.slug}">
+      <div class="card-top">
+        <span class="badge type-badge">${esc(p.type_label)}</span>
+        <span class="badge status-badge">${esc(p.status)}</span>
+      </div>
+      <h3>${esc(p.name)}</h3>
+      <p class="card-blurb">${esc(blurb)}</p>
+      <div class="card-footer">
+        <span class="card-demo">${esc(p.demonstrates_short || "")}</span>
+        <span class="card-cta">Read the build →</span>
+      </div>
+    </button>`;
+  }).join("");
+
+  viewRoot.innerHTML = `
+  <div class="view">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Enterprise AI Production · Agent Skills & Product Library</div>
+        <h1>Patrick Diamitani</h1>
+        <p class="hero-tagline">${esc(SITE.hero)}</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-n">${n}</div><div class="stat-l">Systems in the library</div></div>
+          <div class="stat"><div class="stat-n">${live}</div><div class="stat-l">Live in production</div></div>
+          <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Daily non-technical users</div></div>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#library" class="btn btn-primary" data-nav="library">View the library ↓</a>
+          <a href="#about" class="btn btn-ghost" data-nav="about">About Patrick</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="about-section">
+      <div class="about-inner">
+        <h2>About</h2>
+        <div class="about-text">${SITE.aboutHtml}</div>
+        <div class="highlights-block">
+          <h3>Career Highlights</h3>
+          <ul class="highlights-list">${highlights}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach-section">
+      <div class="about-inner">
+        <h2>Approach</h2>
+        <div class="approach-grid">${approach}</div>
+      </div>
+    </section>
+
+    <main id="library" class="library">
+      <div class="library-head">
+        <h2>Skill & Product Library</h2>
+        <input id="search" type="search" placeholder="Search the library…" aria-label="Search products">
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-cat="all">All (${n})</button>
+        ${catButtons}
+      </div>
+      <div class="grid" id="grid">${cards}</div>
+      <div id="empty" class="empty" hidden>No systems match — try another search.</div>
+    </main>
+
+    <section id="contact" class="contact-section">
+      <div class="about-inner contact-inner">
+        <h2>Let's talk</h2>
+        <p>${esc(SITE.contact)}</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:pdiamitani@atlashxm.com">Email</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/diamitani" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>`;
+
+  const grid = document.getElementById("grid");
+  const cardEls = Array.from(grid.querySelectorAll(".card"));
+  const filterBtns = Array.from(document.querySelectorAll(".filter-btn"));
+  const search = document.getElementById("search");
+  const empty = document.getElementById("empty");
+  let activeCat = "all";
+
+  function apply() {
+    const q = (search?.value || "").trim().toLowerCase();
+    let visible = 0;
+    cardEls.forEach((c) => {
+      const okCat = activeCat === "all" || c.dataset.cat === activeCat;
+      const okQ = !q || (c.dataset.search || "").includes(q);
+      const show = okCat && okQ;
+      c.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+    if (empty) empty.hidden = visible !== 0;
+  }
+  filterBtns.forEach((b) => b.addEventListener("click", () => {
+    filterBtns.forEach((x) => x.classList.remove("active"));
+    b.classList.add("active");
+    activeCat = b.dataset.cat;
+    apply();
+  }));
+  search?.addEventListener("input", apply);
+  cardEls.forEach((c) => c.addEventListener("click", () => { location.hash = `#/p/${c.dataset.slug}`; }));
+  viewRoot.querySelectorAll("[data-nav]").forEach((el) => el.addEventListener("click", (e) => {
+    // let the hash-based smooth scroll happen after render
+  }));
+}
+
+function renderProduct(slug) {
+  const p = SITE.products.find((x) => x.slug === slug);
+  if (!p) { location.hash = ""; return; }
+  const tags = (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+  const integ = (p.integrations || []).map(t => `<span class="chip">${esc(t)}</span>`).join("");
+  const reqs = (p.requirements || []).map(r => `<li>${esc(r)}</li>`).join("");
+
+  viewRoot.innerHTML = `
+  <main class="product-page view" style="--cat-color:${p.color}">
+    <div class="crumbs"><button data-back="library">Skill & Product Library</button> <span>/</span> <span>${esc(p.category)}</span></div>
+    <header class="product-hero">
+      <div class="badge-row">
+        <span class="badge type-badge">${esc(p.type_label)}</span>
+        <span class="badge status-badge">${esc(p.status)}</span>
+      </div>
+      <h1>${esc(p.name)}</h1>
+      <p class="tagline">${esc(p.tagline)}</p>
+      <div class="metric-callout">${esc(p.headline_metric)}</div>
+      <div class="tags">${tags}</div>
+    </header>
+    <div class="product-body">
+      <article class="onesheet">${p.onesheet_html}</article>
+      <aside class="side-panel">
+        <div class="panel"><h3>Stack & Integrations</h3><div class="chips">${integ}</div></div>
+        <div class="panel"><h3>What It Needs</h3><ul class="req-list">${reqs}</ul></div>
+        <div class="panel panel-cta">
+          <h3>Discuss this build</h3>
+          <p>Happy to walk through the architecture, the failures along the way, or how this could translate to your team.</p>
+          <a class="btn btn-primary" href="mailto:pdiamitani@atlashxm.com?subject=Portfolio%3A%20${encodeURIComponent(p.name)}">Email Patrick</a>
+        </div>
+      </aside>
     </div>
-  </div>
-</section>
+  </main>`;
+  window.scrollTo({ top: 0, behavior: "instant" });
+  const back = viewRoot.querySelector("[data-back]");
+  back?.addEventListener("click", () => { location.hash = "#library"; });
+}
 
-<section class="approach-section">
-  <div class="about-inner">
-    <h2>Approach</h2>
-    <div class="approach-grid"><div class="approach-card"><h3>Hybrid AI Architecture</h3><p>Every system in this library draws a hard line between judgment and interpretation. Language models are used for exactly what they&#x27;re good at — reading unstructured text, mapping messy values to clean categories, drafting first-pass copy — while the actual decision (a compliance tier, a lifecycle stamp, a dollar figure) is made by deterministic, testable code that produces the same answer on the same input, every time.</p></div><div class="approach-card"><h3>Production Discipline</h3><p>Nothing ships without a dry-run path, a rollback plan, and a way to fail loudly instead of silently. Systems that touch live CRM data default to report-only until a human signs off, and every automation shares a common error-handling pattern so a failure surfaces the same way, every time, instead of becoming a one-off mystery.</p></div><div class="approach-card"><h3>Cost Engineering</h3><p>AI and enrichment spend is treated as an engineering constraint, not an afterthought. Free eligibility checks run before any paid step, expensive operations are gated to the accounts that actually warrant them, and every workflow reports its own cost — so spend stays predictable by design rather than by someone remembering to watch a dashboard.</p></div><div class="approach-card"><h3>Platform Building</h3><p>The most durable output isn&#x27;t any single automation — it&#x27;s the standard that makes the next one faster to build safely. A shared build methodology, a self-serve project-intake tool, and a reusable skill library mean the organization&#x27;s AI capability compounds instead of living entirely inside one person&#x27;s head.</p></div></div>
-  </div>
-</section>
+function router() {
+  const hash = location.hash || "";
+  const m = hash.match(/^#\/p\/(.+)$/);
+  if (m) {
+    renderProduct(decodeURIComponent(m[1]));
+  } else {
+    renderHome();
+    if (hash && hash !== "#") {
+      requestAnimationFrame(() => {
+        const target = document.querySelector(hash);
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }
+}
 
-<main id="library" class="library">
-  <div class="library-head">
-    <h2>Skill &amp; Product Library</h2>
-    <input id="search" type="search" placeholder="Search the library…" aria-label="Search products">
-  </div>
-  <div class="filters">
-    <button class="filter-btn active" data-cat="all">All (16)</button>
-    <button class="filter-btn" data-cat="Compliance">Compliance</button><button class="filter-btn" data-cat="Data Quality">Data Quality</button><button class="filter-btn" data-cat="Observability">Observability</button><button class="filter-btn" data-cat="Platform">Platform</button><button class="filter-btn" data-cat="RevOps">RevOps</button><button class="filter-btn" data-cat="Sales Automation">Sales Automation</button>
-  </div>
-  <div class="grid" id="grid">
-    
-    <a class="card" href="products/gtm-ai-platform.html" style="--cat:#1b2a4a"
-       data-cat="Platform"
-       data-search="the gtm ai platform not one automation — the operating system a 50-person gtm org runs its ai adoption on. claude skills n8n ollama platform governance rostr">
-      <div class="card-top">
-        <span class="badge type-badge">Platform</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>The GTM AI Platform</h3>
-      <p class="card-blurb">One automation is a win; fifty people using AI daily requires a system. A published build methodology, a self-serve project-intake engine, and a 40+ skill library now let one person&#x27;s work compound across an entire go-to-market org instead of resetting with every new request.</p>
-      <div class="card-footer">
-        <span class="card-demo">Standards, governance, and scale</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/ai-customer-agent-suite.html" style="--cat:#8a6d3b"
-       data-cat="Sales Automation"
-       data-search="ai customer agent suite a production website ai agent, plus the qualification pipeline, reporting warehouse, and revenue-attribution layer that prove exactly what it&#x27;s worth. hubspot breeze customer agent n8n azure openai gpt-4o-mini microsoft graph sharepoint mql classification revenue attribution langchain">
-      <div class="card-top">
-        <span class="badge type-badge">AI Agent System</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>AI Customer Agent Suite</h3>
-      <p class="card-blurb">A global HR-tech (EOR) platform needed an AI agent that could qualify website visitors and prove its own revenue impact, not just chat. Built end to end — agent, qualification pipeline, reporting warehouse, and a three-tier attribution model — it sourced a $250K deal traceable to a single conversation and $520K+ in attributed pipeline within four months.</p>
-      <div class="card-footer">
-        <span class="card-demo">Full-stack AI product ownership</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/eor-compliance-checker.html" style="--cat:#8b4a3f"
-       data-cat="Compliance"
-       data-search="eor compliance checker ai deal screening on the live sales pipeline: every deal gets an auditable compliance verdict the moment it enters. n8n azure openai hubspot avoma compliance rules engine">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>EOR Compliance Checker</h3>
-      <p class="card-blurb">Deals were reaching contracting before anyone checked whether the role or industry was even eligible for the company&#x27;s core service, killing deals late. An LLM-plus-rules-engine screening system now evaluates every deal on entry, correctly clearing 100+ deals stuck in manual review and doubling detection of ineligible deals with a perfect production write record.</p>
-      <div class="card-footer">
-        <span class="card-demo">Regulated-domain AI with audit trails</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/hubspot-import-formatter.html" style="--cat:#4a6b8a"
-       data-cat="Data Quality"
-       data-search="hubspot import formatter killing crm duplicates at the source — any rep spreadsheet becomes a clean hubspot import in minutes. claude skill hubspot naics dedup crm hygiene">
-      <div class="card-top">
-        <span class="badge type-badge">Claude Skill</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>HubSpot Import Formatter</h3>
-      <p class="card-blurb">Inconsistent rep-uploaded spreadsheets were polluting the CRM with duplicate contacts and companies, inflating pipeline forecasts. A skill now converts any spreadsheet into clean, deduped, NAICS-enriched import templates, live across a 50+ person team with adoption tracked by a run ledger.</p>
-      <div class="card-footer">
-        <span class="card-demo">Root-cause data-quality engineering</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/inbound-automation.html" style="--cat:#3d6b5c"
-       data-cat="RevOps"
-       data-search="inbound automation workflow every contact-form submission classified, routed, and replied to by ai — the moment it lands. n8n azure openai hubspot outlook intent classification lead routing">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>Inbound Automation Workflow</h3>
-      <p class="card-blurb">A website contact form was a firehose of buyers, vendors, job seekers, and support requests all landing in one place for a human to triage. An LLM now classifies every submission into seven intents, stamps CRM lifecycle, and drafts a human-sounding follow-up — with a hard-override so a visitor&#x27;s stated reason always wins.</p>
-      <div class="card-footer">
-        <span class="card-demo">LLM classification with governance rails</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/partner-pql-automation.html" style="--cat:#3d6b5c"
-       data-cat="RevOps"
-       data-search="partner pql automation ai lead classification &amp; routing — genuine partnership leads reach a human; vendor spam never does. n8n azure openai hubspot lead routing classification">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>Partner PQL Automation</h3>
-      <p class="card-blurb">A partner-inquiry form mixed genuine partnership leads with vendor spam, and everything landed on one person to triage by hand. An LLM now classifies every submission and routes only real leads to a high-priority task with an AI-drafted response, filtering spam with zero manual effort.</p>
-      <div class="card-footer">
-        <span class="card-demo">LLM classification in production CRM</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/post-sales-call-automation.html" style="--cat:#8a6d3b"
-       data-cat="Sales Automation"
-       data-search="post-sales call automation four ai agents on every sales call — follow-up email, missed questions, competitor intel, and a crm note, with zero rep action. n8n azure openai hubspot avoma azure blob storage outlook multi-agent sales follow-up">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>Post-Sales Call Automation</h3>
-      <p class="card-blurb">Reps left sales calls without consistent follow-up, and country-specific facts — the core of this company&#x27;s product — varied rep to rep. A four-agent pipeline now turns every recorded call into five deliverables automatically, rebuilt from a failing RAG-based design (0/25 passing) to a fully verified deterministic one.</p>
-      <div class="card-footer">
-        <span class="card-demo">Event-driven multi-agent pipelines</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/prospect-automation-engine.html" style="--cat:#8a6d3b"
-       data-cat="Sales Automation"
-       data-search="prospect automation engine a daily intent-to-outreach pipeline that turns yesterday&#x27;s buying signals into routed, enriched, icp-clean accounts — automatically. n8n hubspot clay zoominfo factors.ai intent routing">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>Prospect Automation Engine</h3>
-      <p class="card-blurb">Buying-intent signals were pouring into the CRM but converting them to outbound meant a human filtering out customers, competitors, and wrong regions every day. A daily n8n engine now runs the full ICP + safety gauntlet, round-robins survivors to the right rep by region, and fires them into enrichment — zero manual triage.</p>
-      <div class="card-footer">
-        <span class="card-demo">Intent-driven, compliance-first prospecting</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/prospect-enrichment-pipeline.html" style="--cat:#4a6b8a"
-       data-cat="Data Quality"
-       data-search="prospect enrichment pipeline a python enrichment pipeline that guarantees an outsourced sdr agency never calls the same prospect twice. python amplemarket clay data enrichment sdr dedup">
-      <div class="card-top">
-        <span class="badge type-badge">Data Pipeline</span>
-        <span class="badge status-badge">Live in production</span>
-      </div>
-      <h3>Prospect Enrichment Pipeline</h3>
-      <p class="card-blurb">An outsourced sales-development team was being fed stale, already-called contacts, burning paid outreach time. A nine-script Python pipeline now merges, dedupes, and enriches prospect lists automatically, delivering confirmed 0% overlap against thousands of already-contacted records and 91% phone coverage.</p>
-      <div class="card-footer">
-        <span class="card-demo">API-based enrichment at scale</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/rfp-response-suite.html" style="--cat:#3d6b5c"
-       data-cat="RevOps"
-       data-search="rfp response suite from days to hours on enterprise questionnaires — a knowledge base that closes its own gaps. claude skill hubspot rfp knowledge base semantic search">
-      <div class="card-top">
-        <span class="badge type-badge">AI Agent System</span>
-        <span class="badge status-badge">Phase 1 live</span>
-      </div>
-      <h3>RFP Response Suite</h3>
-      <p class="card-blurb">Enterprise RFP responses took days of document archaeology, and knowledge gaps stayed invisible until a prospect&#x27;s question exposed them. A three-part skill suite now builds an atomic, owner-routed knowledge base and auto-creates a tracked ticket for every unanswered question instead of letting it disappear.</p>
-      <div class="card-footer">
-        <span class="card-demo">Knowledge-base architecture</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/clay-credit-governance.html" style="--cat:#3d6b5c"
-       data-cat="RevOps"
-       data-search="clay credit governance cutting enrichment cost ~70% by making overspend structurally impossible. clay finops cost control enrichment hubspot">
-      <div class="card-top">
-        <span class="badge type-badge">Platform</span>
-        <span class="badge status-badge">Shipped</span>
-      </div>
-      <h3>Clay Credit Governance</h3>
-      <p class="card-blurb">A runaway enrichment-spend incident burned through a large credit purchase in about a month with zero pre-run cost visibility. Owning the failure directly led to a rebuilt, tiered enrichment standard with a free eligibility gate and per-row cost estimates — cutting spend per record by roughly 70% by design.</p>
-      <div class="card-footer">
-        <span class="card-demo">FinOps for AI/data tooling</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/clay-prospecting-engine.html" style="--cat:#8a6d3b"
-       data-cat="Sales Automation"
-       data-search="clay prospecting engine zero-ui prospecting for non-technical reps — upload a csv, get an enriched list back. claude skill clay hubspot enrichment prospecting">
-      <div class="card-top">
-        <span class="badge type-badge">Claude Skill</span>
-        <span class="badge status-badge">Shipped</span>
-      </div>
-      <h3>Clay Prospecting Engine</h3>
-      <p class="card-blurb">A powerful enrichment platform&#x27;s list-building UI was never something 50+ non-technical reps could safely drive themselves, so every request bottlenecked on one person. A CSV-upload skill now auto-detects company vs. contact lists and routes to the right enrichment pipeline with zero UI interaction required.</p>
-      <div class="card-footer">
-        <span class="card-demo">Productizing internal tooling</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/entity-readiness-change-report.html" style="--cat:#8b4a3f"
-       data-cat="Compliance"
-       data-search="entity readiness change report a failure-safe weekly diff engine that catches every country compliance flip a marketing team would otherwise miss. n8n onspring compliance state management outlook">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Build-ready</span>
-      </div>
-      <h3>Entity Readiness Change Report</h3>
-      <p class="card-blurb">A company&#x27;s legal ability to hire in a given country changes over time, but nobody was catching the flips — marketing kept paying for ads in countries that were no longer eligible. A failure-safe weekly diff engine now reports only what changed, designed so a bad data pull can never corrupt the system&#x27;s memory.</p>
-      <div class="card-footer">
-        <span class="card-demo">State management &amp; idempotency</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/pre-call-briefing-automation.html" style="--cat:#8a6d3b"
-       data-cat="Sales Automation"
-       data-search="pre-call briefing automation an ai briefing in the rep&#x27;s inbox before every sales meeting — so no one walks in cold. n8n hubspot azure openai factors.ai outlook sales enablement">
-      <div class="card-top">
-        <span class="badge type-badge">Automation Workflow</span>
-        <span class="badge status-badge">Shipped</span>
-      </div>
-      <h3>Pre-Call Briefing Automation</h3>
-      <p class="card-blurb">Reps walked into discovery calls cold despite the context already existing somewhere in the CRM. This workflow assembles contact, deal, and buyer-intent data automatically and delivers an AI-drafted brief to the rep&#x27;s inbox before every meeting, with built-in dedupe so nothing is briefed twice.</p>
-      <div class="card-footer">
-        <span class="card-demo">Sales-call lifecycle ownership</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/rostr-framework.html" style="--cat:#1b2a4a"
-       data-cat="Platform"
-       data-search="rostr framework the open build methodology behind every agent in the portfolio — pal, npao, rag/dal, and contextengine, unified. rostr pal npao rag/dal contextengine claude skills framework">
-      <div class="card-top">
-        <span class="badge type-badge">Platform</span>
-        <span class="badge status-badge">Published</span>
-      </div>
-      <h3>ROSTR Framework</h3>
-      <p class="card-blurb">AI work doesn&#x27;t compound: every prompt starts from scratch and every session starts cold. ROSTR is the open methodology behind every build in this portfolio — PAL for depth, NPAO for work classification, RAG/DAL for provenance honesty, and a flat-file ContextEngine that gives AI sessions durable memory.</p>
-      <div class="card-footer">
-        <span class="card-demo">Framework thinking that compounds</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-    <a class="card" href="products/n8n-execution-intelligence.html" style="--cat:#5c6b7a"
-       data-cat="Observability"
-       data-search="n8n execution intelligence point it at any n8n workflow — get root cause, fix suggestion, and a live health dashboard in under a minute. n8n python sqlite observability sre">
-      <div class="card-top">
-        <span class="badge type-badge">Platform</span>
-        <span class="badge status-badge">Design phase</span>
-      </div>
-      <h3>n8n Execution Intelligence</h3>
-      <p class="card-blurb">When an automation failed or quietly stalled, the team found out only when data stopped moving, then diagnosed it by clicking through runs one at a time. A read-only observability layer now targets cutting diagnosis time from 10-15 minutes to under 60 seconds, with a hard no-fabrication charter on every claim.</p>
-      <div class="card-footer">
-        <span class="card-demo">SRE instincts for automation</span>
-        <span class="card-cta">Read the build →</span>
-      </div>
-    </a>
-  </div>
-  <div id="empty" class="empty" hidden>No systems match — try another search.</div>
-</main>
+window.addEventListener("hashchange", router);
+document.getElementById("nav-brand").addEventListener("click", () => { location.hash = ""; window.scrollTo({top:0, behavior:"smooth"}); });
+document.getElementById("nav-about").addEventListener("click", () => { location.hash = "#about"; });
+document.getElementById("nav-library").addEventListener("click", () => { location.hash = "#library"; });
+document.getElementById("nav-contact").addEventListener("click", () => { location.hash = "#contact"; });
 
-<section id="contact" class="contact-section">
-  <div class="about-inner contact-inner">
-    <h2>Let's talk</h2>
-    <p>Reach Patrick at pdiamitani@atlashxm.com or on LinkedIn at linkedin.com/in/diamitani.</p>
-    <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:pdiamitani@atlashxm.com">Email</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/diamitani" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-  </div>
-</section>
-<footer class="footer">
-  <div class="footer-inner">
-    <div>© 2026 Patrick Diamitani · A division of <a href="https://diamitani.com" style="color:inherit;text-decoration:underline">Diamitani Industries, Inc.</a> Case studies anonymized for public portfolio use — no employer-identifying or client-identifying detail included.</div>
-    <div class="footer-meta">pdiamitani@atlashxm.com · linkedin.com/in/diamitani</div>
-  </div>
-</footer>
-<script src="assets/app.js"></script>
-</body>
+const root = document.documentElement;
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const current = root.getAttribute("data-theme") || "dark";
+  root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+});
+
+router();
+</script>
+
 </html>
