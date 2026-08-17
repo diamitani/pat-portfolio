@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AWS Leadership Principles STAR Responses — Patrick Diamitani">
+<title>AWS Solutions Architect — Patrick Diamitani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;460;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c; --surface: #111318; --surface2: #181b21; --border: #23262d;
+  --text: #e4e5e7; --muted: #8b8d93; --dim: #54565c;
+  --accent: #a78bfa; --accent2: #06b6d4; --accent3: #ff9900;
+  --cream: #e9e5dd; --ink: #292827;
+  --font: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 460; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta { padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--accent3); color: var(--bg); text-decoration: none; }
+.nav-cta:hover { background: #ffaa33; }
+.page { padding-top: 96px; }
+.section { padding: 80px 2rem; }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent3); font-weight: 600; margin-bottom: 0.75rem; }
+.section h1 { font-size: 40px; font-weight: 540; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 1rem; }
+.section h2 { font-size: 24px; font-weight: 540; margin: 3rem 0 1rem; letter-spacing: -0.3px; }
+.section h3 { font-size: 16px; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--accent3); }
+.section p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.hero-desc { font-size: 16px; color: var(--text); margin-bottom: 2rem; }
+.star-principle {
+  border-top: 1px solid var(--border); padding-top: 40px; margin-top: 40px;
+}
+.star-principle:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+.principle-header { margin-bottom: 1.5rem; }
+.principle-tag { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent3); font-weight: 700; margin-bottom: 6px; }
+.principle-header h2 { margin: 0 0 8px; }
+.principle-header p { font-size: 14px; font-style: italic; color: var(--dim); margin: 0; }
+.star-block { margin: 1.5rem 0; }
+.star-label { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.star-block p { margin: 0; }
+.download-bar {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 24px; margin: 2rem 0; text-align: center;
+}
+.download-bar h3 { color: var(--text); margin-bottom: 0.5rem; }
+.download-bar p { font-size: 14px; margin-bottom: 1rem; }
+.pdf-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  background: var(--accent3); color: var(--bg); text-decoration: none;
+}
+.pdf-btn:hover { background: #ffaa33; }
+.footer { padding: 48px 2rem; text-align: center; border-top: 1px solid var(--border); }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); }
+.footer p { font-size: 12px; color: var(--dim); }
+@media (max-width: 768px) {
+  .section h1 { font-size: 30px; }
+  .section h2 { font-size: 20px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">Patrick Diamitani</a>
+    <div class="nav-links">
+      <a href="./">Work</a>
+      <a href="case-studies.html">Studies</a>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+    </div>
+    <a href="#download" class="nav-cta">Download PDF</a>
+  </div>
+</nav>
+<div class="page">
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">AWS Leadership Principles</div>
+    <h1>Solutions Architect, Startups</h1>
+    <p class="hero-desc">STAR format responses demonstrating fit for AWS Solutions Architect - Startups role. Each principle is answered with concrete examples from production systems shipping AI automation, compliance tooling, and multi-agent frameworks.</p>
+  
+    <div class="download-bar" id="download">
+      <h3>📄 Complete STAR Responses</h3>
+      <p>Download the full document with all 6 leadership principle responses in PDF format.</p>
+      <a href="AWS_STAR_Responses_Patrick_Diamitani.pdf" class="pdf-btn" download>
+        <span>📥</span> Download PDF
+      </a>
+    </div>
+
+    <div class="star-principle" id="customer-obsession">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 1</div>
+        <h2>Customer Obsession</h2>
+        <p>Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>Our sales reps needed a customized pre-call brief to review before every client meeting. They already had access to raw datapoints—web activity, HubSpot engagement, past meeting notes—but that data lived in silos and required manual digging. What they actually needed was synthesized insight, not another dashboard of numbers.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Build a workflow automation that combined company and prospect research, lead intelligence, and HubSpot activity signals into a single, actionable brief for reps ahead of every call.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Mapped every data source: HubSpot contact/company activity, prior meeting history, Factors.ai intent data, and product catalog. Built an n8n workflow that pulled scheduled meetings daily and enriched each with contact/company-level data. Engineered the AI node prompt to move beyond surface-level summaries—training it to map page view spikes to relevant products.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>Auto-generates a 5-bullet action brief for every prospect/MQL, mapped to relevant products. Embedded on every HubSpot contact record—reducing manual research time reps previously spent per call.</p>
+      </div>
+    </div>
+
+    <div class="star-principle" id="ownership">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 2</div>
+        <h2>Ownership</h2>
+        <p>Leaders are owners. They think long term and act on behalf of the entire company.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>RevOps receives lead lists with mismatched headers, inconsistent casing, and invalid data that slow down imports or create bad HubSpot records.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Solve at the system level—make any lead list format and import automatically with no manual cleanup.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Built a Claude Coworkers skill that handles file uploads with specific formatting instructions. Validates headers, standardizes casing, removes duplicates, maps fields to HubSpot schema, and returns a clean file ready for import.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>Now the team drops any CSV into the tool and gets back a validated, formatted file in seconds. Removes human error and ensures standardized structure—keeping HubSpot clean.</p>
+      </div>
+    </div>
+
+    <div class="star-principle" id="invent-simplify">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 3</div>
+        <h2>Invent and Simplify</h2>
+        <p>Leaders expect innovation and always find ways to simplify.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>Manual prospecting does not scale and creates uneven coverage across reps.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Build an end-to-end system sourcing leads, enriching/scoring them, generating personalized outreach, and delivering to reps' tools—automatically on a schedule.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Full-stack pipeline: SerpAPI for lead lists → Clay for data enrichment (cleaning, contact finding, fit scoring) → Custom Claude Coworkers AI agent generating 3–5 message variations per lead → Amplemarket for sequencing/deliverability → Calendly integration for booked meetings.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>Pipeline runs every morning at 7am with zero manual input. Reps start their day with enriched leads and pre-written sequences—focusing on conversations instead of list building.</p>
+      </div>
+    </div>
+
+    <div class="star-principle" id="learn-curious">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 4</div>
+        <h2>Learn & Be Curious</h2>
+        <p>Leaders are never done learning and always seek to improve themselves.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>Staying current with AI requires daily ingestion—not weekly newsletters.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Create an automated system curating and synthesizing the most significant AI/ML developments daily.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Built an automated news aggregation using n8n. Pulls fresh AI/ML and tech stories from Reddit, Hacker News, newsletters, and RSS feeds. Claude Coworkers skill analyzes each for novelty and relevance, generates a structured digest, surfaces top 5 with synthesized explanations.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>Generated "LiveBuildAI" LinkedIn newsletter scaling to 992+ subscribers and producing inbound inquiries for consulting and product development.</p>
+      </div>
+    </div>
+
+    <div class="star-principle" id="highest-standards">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 5</div>
+        <h2>Insist on the Highest Standards</h2>
+        <p>Leaders have relentlessly high standards and continually raise the bar.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>Single-model prompts for all tasks introduce unnecessary error and cost. Different tasks need different minds—planning vs. writing vs. debugging.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Design a framework routing tasks to optimal LLMs by phase, with benchmarks validating the decision logic.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Built ROSTR Framework—classifies tasks by 5D Phase (PreD, Design, Dev, Deploy, Debug) and routes to best-fit model via PAL compilation layer. PreD research → DeepSeek; UI prototyping → Claude. Benchmarked 20 real tasks.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>ROSTR demonstrated materially improved output quality. Published with Zenodo DOI (citable) as foundation for all builds.</p>
+      </div>
+    </div>
+
+    <div class="star-principle" id="bias-action">
+      <div class="principle-header">
+        <div class="principle-tag">Principle 6</div>
+        <h2>Bias for Action</h2>
+        <p>Leaders know speed matters. Many decisions are reversible—value calculated risk-taking.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Situation</div>
+        <p>n8n instance runs dozens of workflows with no centralized health tracking. Silent failures could stall lead routing or HubSpot syncs for days.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Task</div>
+        <p>Ship lightweight monitoring auditing all daily executions, surfacing failures with root-cause tagging, pushing reports to VP of Growth—fast.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Action</div>
+        <p>Skipped "right" architecture. Built Claude Coworkers skill (n8n-execution-analyst) querying n8n Postgres directly, pulling execution records, flagging unfinished runs, categorizing root causes, generating markdown reports, emailing via SMTP to VP.</p>
+      </div>
+      <div class="star-block">
+        <div class="star-label">Result</div>
+        <p>Daily audit surfaces failures within 24 hours. Caught and repaired 8 unknown workflow issues in first month—preventing lead routing delays, sync failures, downstream pipeline impact. VP starts every day with visible proof of system health.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/Diamitani">LinkedIn</a>
+    <a href="mailto:patrick.diamitani@gmail.com">Email</a>
+    <a href="./">← Back to Portfolio</a>
+  </div>
+  <p>Patrick Diamitani · 319.930.0290 · patrick.diamitani@gmail.com · © 2026</p>
+</footer>
+</body>
+</html>
