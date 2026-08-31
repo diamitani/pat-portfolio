@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Reusable AI skills by Patrick Diamitani — modular capabilities for workflows, agents, and automation.">
+  <title>Skills — Patrick Diamitani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050508;--surface:#0c0d12;--surface2:#14151b;--border:#1e1f26;--text:#e6e6e8;--muted:#8c8d93;--dim:#55565c;--accent:#a78bfa;--accent2:#06b6d4;--gold:#c9a227;--cream:#e9e5dd;--ink:#1a1917;--font:'Inter',system-ui,sans-serif;--display:'Playfair Display',serif;--mono:'JetBrains Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,8,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-weight:700;font-size:15px;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center}
+    .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-cta{padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;background:var(--cream);color:var(--ink);text-decoration:none}
+    
+    .page-header{padding:140px 2rem 80px;background:radial-gradient(160% 100% at 50% 0,#141028 0,#0b0a14 35%,#050508 100%)}
+    .page-header-inner{max-width:1200px;margin:0 auto}
+    .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:.5px;margin-bottom:1.5rem}
+    .page-header h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem}
+    .page-header h1 em{font-style:italic;color:var(--accent)}
+    .page-header p{max-width:600px;color:var(--muted);font-size:1.1rem;line-height:1.7}
+    
+    .section{padding:80px 2rem;background:var(--surface)}
+    .section-alt{background:var(--bg)}
+    .section-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1rem}
+    .section h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;margin-bottom:1.5rem}
+    .section h2 em{font-style:italic}
+    .section p{color:var(--muted);max-width:700px;margin-bottom:2rem}
+    
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+    .skill-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .2s;cursor:pointer}
+    .skill-card:hover{border-color:var(--accent);background:var(--surface2)}
+    .skill-header{display:flex;align-items:center;gap:12px;margin-bottom:.75rem}
+    .skill-icon{width:36px;height:36px;background:rgba(167,139,250,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+    .skill-header h3{font-size:1rem;font-weight:600}
+    .skill-card p{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:1rem}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .skill-tag{font-size:11px;background:var(--surface2);color:var(--dim);padding:3px 8px;border-radius:4px}
+    .skills-category{margin-bottom:3rem}
+    .skills-category h3{font-size:14px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+    
+    .code-preview{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:3rem}
+    .code-preview h4{font-size:13px;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px}
+    .code-block{background:var(--bg);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:13px;color:var(--text);overflow-x:auto;line-height:1.6}
+    .code-block .keyword{color:var(--accent)}
+    .code-block .string{color:#22c55e}
+    .code-block .comment{color:var(--dim)}
+    
+    footer{padding:60px 2rem;border-top:1px solid var(--border)}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+    .footer-brand{font-weight:600}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:13px}
+    .footer-links a:hover{color:var(--text)}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">Patrick<span>Diamitani</span></a>
+      <div class="nav-links">
+        <a href="../">Home</a>
+        <a href="../workflows/">Workflows</a>
+        <a href="../agents/">Agents</a>
+        <a href="./" class="active">Skills</a>
+        <a href="../harness/">Harness</a>
+        <a href="../rostr.html">ROSTR</a>
+      </div>
+      <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge">🧠 Skill Library</div>
+      <h1>Reusable <em>capabilities.</em></h1>
+      <p>Modular skills that integrate into any workflow or agent. From web scraping to email generation to video production—drop-in and deploy.</p>
+    </div>
+  </header>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="skills-category">
+        <h3>Content & Creative</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🎬</div><h3>Video Generation</h3></div>
+            <p>Generate videos from prompts using HyperFrames, FAL, or Runway. Text-to-video, image-to-video, motion graphics.</p>
+            <div class="skill-tags"><span class="skill-tag">HyperFrames</span><span class="skill-tag">FAL</span><span class="skill-tag">Runway</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🎨</div><h3>Image Generation</h3></div>
+            <p>High-quality image generation via FLUX, DALL-E, ComfyUI. Product shots, concepts, creative assets.</p>
+            <div class="skill-tags"><span class="skill-tag">FLUX</span><span class="skill-tag">DALL-E</span><span class="skill-tag">ComfyUI</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🎵</div><h3>Audio Synthesis</h3></div>
+            <p>Voiceover generation, music composition, sound effects. TTS via Kokoro, music via Suno/AudioCraft.</p>
+            <div class="skill-tags"><span class="skill-tag">TTS</span><span class="skill-tag">MusicGen</span><span class="skill-tag">Kokoro</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">📝</div><h3>Copywriting</h3></div>
+            <p>Email sequences, landing page copy, social posts, long-form content in defined brand voice.</p>
+            <div class="skill-tags"><span class="skill-tag">PAL</span><span class="skill-tag">Voice-matched</span><span class="skill-tag">SEO</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Data & Intelligence</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🕷️</div><h3>Web Scraping</h3></div>
+            <p>Extract structured data from websites. JavaScript-rendered pages, rate limiting, data validation.</p>
+            <div class="skill-tags"><span class="skill-tag">Firecrawl</span><span class="skill-tag">Playwright</span><span class="skill-tag">Data validation</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">📚</div><h3>Document Processing</h3></div>
+            <p>Extract text from PDFs, images, scans. OCR via marker-pdf, chunking, structured output.</p>
+            <div class="skill-tags"><span class="skill-tag">OCR</span><span class="skill-tag">Chunking</span><span class="skill-tag">Validation</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🔍</div><h3>Research Aggregation</h3></div>
+            <p>Automated research from arXiv, web search, RSS feeds. Synthesis with citations and confidence scoring.</p>
+            <div class="skill-tags"><span class="skill-tag">arXiv</span><span class="skill-tag">Web search</span><span class="skill-tag">Synthesis</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🗄️</div><h3>Vector Database Operations</h3></div>
+            <p>RAG-ready chunking, embedding, retrieval. Pinecone, Weaviate, Supabase pgvector integration.</p>
+            <div class="skill-tags"><span class="skill-tag">RAG</span><span class="skill-tag">Embeddings</span><span class="skill-tag">Retrieval</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Communication & Ops</h3>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">✉️</div><h3>Email Automation</h3></div>
+            <p>Multi-stage email sequences with personalization, A/B testing, deliverability via SendGrid/Resend.</p>
+            <div class="skill-tags"><span class="skill-tag">SendGrid</span><span class="skill-tag">Resend</span><span class="skill-tag">A/B testing</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">💬</div><h3>Chatbot Integration</h3></div>
+            <p>LLM-powered chatbots for support, sales, internal tools. Connects to knowledge bases and takes actions.</p>
+            <div class="skill-tags"><span class="skill-tag">Voiceflow</span><span class="skill-tag">Assistant-UI</span><span class="skill-tag">Actions</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">📊</div><h3>Analytics Reporting</h3></div>
+            <p>Automated dashboards and reports from multiple sources. Trends, insights, scheduled delivery.</p>
+            <div class="skill-tags"><span class="skill-tag">Metabase</span><span class="skill-tag">Charts</span><span class="skill-tag">Scheduled</span></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header"><div class="skill-icon">🔔</div><h3>Alert Management</h3></div>
+            <p>Deduplicate and route alerts from multiple sources. Priority scoring and smart routing.</p>
+            <div class="skill-tags"><span class="skill-tag">Dedup</span><span class="skill-tag">Routing</span><span class="skill-tag">Slack</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-preview">
+        <h4>Skill Format (Hermes Agent)</h4>
+        <pre class="code-block"><span class="comment"># ~/.hermes/skills/web-scraping/SKILL.md</span>
+<span class="keyword">name</span>: web-scraping
+<span class="keyword">trigger</span>: Extract data from websites
+<span class="keyword">tools</span>: [firecrawl, playwright, validation]
+
+<span class="keyword">When to use</span>:
+- User needs data from a URL
+- JavaScript-rendered pages
+- Rate-limited extraction
+
+<span class="string">env:</span>
+  FIRECRAWL_API_KEY: required
+  EXTRACTION_SCHEMA: optional</pre>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Patrick Diamitani</div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="https://github.com/diamitani">GitHub</a>
+        <a href="mailto:patrick.diamitani@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

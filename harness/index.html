@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Environment harnesses by Patrick Diamitani — Ollama, n8n, AWS, Vercel, Supabase setup configurations.">
+  <title>Harness — Patrick Diamitani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050508;--surface:#0c0d12;--surface2:#14151b;--border:#1e1f26;--text:#e6e6e8;--muted:#8c8d93;--dim:#55565c;--accent:#a78bfa;--accent2:#06b6d4;--gold:#c9a227;--cream:#e9e5dd;--ink:#1a1917;--font:'Inter',system-ui,sans-serif;--display:'Playfair Display',serif;--mono:'JetBrains Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,8,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-weight:700;font-size:15px;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center}
+    .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-cta{padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;background:var(--cream);color:var(--ink);text-decoration:none}
+    
+    .page-header{padding:140px 2rem 80px;background:radial-gradient(160% 100% at 50% 0,#141028 0,#0b0a14 35%,#050508 100%)}
+    .page-header-inner{max-width:1200px;margin:0 auto}
+    .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:.5px;margin-bottom:1.5rem}
+    .page-header h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem}
+    .page-header h1 em{font-style:italic;color:var(--accent)}
+    .page-header p{max-width:600px;color:var(--muted);font-size:1.1rem;line-height:1.7}
+    
+    .section{padding:80px 2rem;background:var(--surface)}
+    .section-alt{background:var(--bg)}
+    .section-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1rem}
+    .section h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;margin-bottom:1.5rem}
+    .section h2 em{font-style:italic}
+    .section p{color:var(--muted);max-width:700px;margin-bottom:2rem}
+    
+    .harness-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .harness-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .2s}
+    .harness-card:hover{border-color:var(--accent)}
+    .harness-header{background:var(--surface2);border-bottom:1px solid var(--border);padding:1.5rem;display:flex;align-items:center;gap:16px}
+    .harness-icon{width:48px;height:48px;background:var(--surface);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+    .harness-title{font-size:1.1rem;font-weight:600}
+    .harness-status{font-size:11px;color:var(--dim);margin-top:2px}
+    .harness-body{padding:1.5rem}
+    .harness-body p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+    .harness-specs{margin-top:1rem}
+    .harness-specs code{display:block;font-family:var(--mono);font-size:12px;color:var(--text);background:var(--surface2);padding:4px 8px;border-radius:4px;margin-bottom:4px}
+    .harness-links{display:flex;gap:12px;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+    .harness-links a{font-size:13px;color:var(--accent2);text-decoration:none;font-weight:500}
+    .harness-links a:hover{color:var(--accent)}
+    
+    footer{padding:60px 2rem;border-top:1px solid var(--border)}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+    .footer-brand{font-weight:600}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:13px}
+    .footer-links a:hover{color:var(--text)}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">Patrick<span>Diamitani</span></a>
+      <div class="nav-links">
+        <a href="../">Home</a>
+        <a href="../workflows/">Workflows</a>
+        <a href="../agents/">Agents</a>
+        <a href="../skills/">Skills</a>
+        <a href="./" class="active">Harness</a>
+        <a href="../rostr.html">ROSTR</a>
+      </div>
+      <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge">⚙️ Environment Harness</div>
+      <h1>Setup <em>harnesses.</em></h1>
+      <p>Pre-configured environment setups. Get running in minutes, not days. Ollama, n8n, AWS, Vercel, Supabase.</p>
+    </div>
+  </header>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Infrastructure</div>
+      <h2>Production-ready <em>configs.</em></h2>
+      <p>Each harness includes configs, secrets management, and deployment scripts. Import and deploy.</p>
+      
+      <div class="harness-grid">
+        <div class="harness-card">
+          <div class="harness-header">
+            <div class="harness-icon">🦙</div>
+            <div>
+              <div class="harness-title">Ollama</div>
+              <div class="harness-status">Local LLM infrastructure</div>
+            </div>
+          </div>
+          <div class="harness-body">
+            <p>Self-hosted LLMs for inference. Configured for Palmodels, Llama 3, and custom fine-tuned models.</p>
+            <div class="harness-specs">
+              <code>ollama pull llama3.1</code>
+              <code>ollama pull palmodels-k2.5</code>
+              <code>Serve: 127.0.0.1:11434</code>
+            </div>
+            <div class="harness-links">
+              <a href="https://ollama.ai">Ollama</a>
+              <a href="https://github.com/ollama/ollama">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="harness-card">
+          <div class="harness-header">
+            <div class="harness-icon">🔗</div>
+            <div>
+              <div class="harness-title">n8n</div>
+              <div class="harness-status">Workflow automation</div>
+            </div>
+          </div>
+          <div class="harness-body">
+            <p>46-node workflows with Postgres backend. Self-hosted with multi-tenant support and enterprise auth.</p>
+            <div class="harness-specs">
+              <code>docker run n8nio/n8n</code>
+              <code>Postgres: auto-reconnect</code>
+              <code>Scale: multi-worker</code>
+            </div>
+            <div class="harness-links">
+              <a href="https://n8n.io">n8n.io</a>
+              <a href="https://docs.n8n.io">Docs</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="harness-card">
+          <div class="harness-header">
+            <div class="harness-icon">☁️</div>
+            <div>
+              <div class="harness-title">AWS / Supabase</div>
+              <div class="harness-status">Backend infrastructure</div>
+            </div>
+          </div>
+          <div class="harness-body">
+            <p>Bedrock LLM access, S3 storage, Lambda functions. Supabase for auth, realtime, and Postgres.</p>
+            <div class="harness-specs">
+              <code>https://github.com/awslabs/mcp</code>
+              <code>Bedrock: hybrid inference</code>
+              <code>Supabase: auth + realtime</code>
+            </div>
+            <div class="harness-links">
+              <a href="https://aws.amazon.com">AWS</a>
+              <a href="https://supabase.com">Supabase</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="harness-card">
+          <div class="harness-header">
+            <div class="harness-icon">△</div>
+            <div>
+              <div class="harness-title">Vercel</div>
+              <div class="harness-status">Edge deployment</div>
+            </div>
+          </div>
+          <div class="harness-body">
+            <p >Next.js 16+, static exports, custom domains. Preview deploys on every commit. Analytics + Speed Insights.</p>
+            <div class="harness-specs">
+              <code>vercel --prod</code>
+              <code>Auto-preview: per-PR</code>
+              <code>Edge: 100+ regions</code>
+            </div>
+            <div class="harness-links">
+              <a href="https://vercel.com">Vercel</a>
+              <a href="https://nextjs.org">Next.js</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Patrick Diamitani</div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="https://github.com/diamitani">GitHub</a>
+        <a href="mailto:patrick.diamitani@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

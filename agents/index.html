@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI agents by Patrick Diamitani — ROSTR framework and production multi-agent systems.">
+  <title>Agents — Patrick Diamitani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050508;--surface:#0c0d12;--surface2:#14151b;--border:#1e1f26;--text:#e6e6e8;--muted:#8c8d93;--dim:#55565c;--accent:#a78bfa;--accent2:#06b6d4;--gold:#c9a227;--cream:#e9e5dd;--ink:#1a1917;--font:'Inter',system-ui,sans-serif;--display:'Playfair Display',serif;--mono:'JetBrains Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,8,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-weight:700;font-size:15px;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center}
+    .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-cta{padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;background:var(--cream);color:var(--ink);text-decoration:none}
+    
+    .page-header{padding:140px 2rem 80px;background:radial-gradient(160% 100% at 50% 0,#141028 0,#0b0a14 35%,#050508 100%)}
+    .page-header-inner{max-width:1200px;margin:0 auto}
+    .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:.5px;margin-bottom:1.5rem}
+    .page-header h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem}
+    .page-header h1 em{font-style:italic;color:var(--accent)}
+    .page-header p{max-width:600px;color:var(--muted);font-size:1.1rem;line-height:1.7}
+    
+    .section{padding:80px 2rem;background:var(--surface)}
+    .section-alt{background:var(--bg)}
+    .section-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1rem}
+    .section h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;margin-bottom:1.5rem}
+    .section h2 em{font-style:italic}
+    .section p{color:var(--muted);max-width:700px;margin-bottom:2rem}
+    
+    .rostr-feature{background:var(--bg);border:1px solid var(--accent);border-radius:16px;padding:3rem;margin-bottom:3rem;position:relative;overflow:hidden}
+    .rostr-feature::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(167,139,250,.1),transparent 70%);filter:blur(60px)}
+    .rostr-badge{display:inline-block;background:rgba(167,139,250,.1);border:1px solid var(--accent);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1px;margin-bottom:1rem}
+    .rostr-feature h3{font-size:1.75rem;font-weight:600;margin-bottom:1rem}
+    .rostr-feature p{font-size:1rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem}
+    .rostr-cta{display:inline-flex;align-items:center;gap:8px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+    .rostr-cta:hover{color:var(--accent2)}
+    .rostr-components{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+    .rostr-comp{text-align:center;padding:1rem}
+    .rostr-comp-code{font-family:var(--mono);font-size:24px;font-weight:600;color:var(--accent)}
+    .rostr-comp-label{font-size:12px;color:var(--dim);margin-top:4px}
+    
+    .agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+    .agent-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .2s}
+    .agent-card:hover{border-color:var(--accent)}
+    .agent-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:.75rem}
+    .agent-avatar{width:40px;height:40px;background:var(--surface2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .agent-header h4{font-size:1rem;font-weight:600}
+    .agent-header div{font-size:12px;color:var(--dim)}
+    .agent-card p{font-size:13px;color:var(--muted);line-height:1.5}
+    
+    footer{padding:60px 2rem;border-top:1px solid var(--border)}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+    .footer-brand{font-weight:600}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:13px}
+    .footer-links a:hover{color:var(--text)}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">Patrick<span>Diamitani</span></a>
+      <div class="nav-links">
+        <a href="../">Home</a>
+        <a href="../workflows/">Workflows</a>
+        <a href="./" class="active">Agents</a>
+        <a href="../skills/">Skills</a>
+        <a href="../harness/">Harness</a>
+        <a href="../rostr.html">ROSTR</a>
+      </div>
+      <a href="mailto:patrick.diamitani@gmail.com" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-badge">🤖 Agent Systems</div>
+      <h1>Intelligent <em>agents.</em></h1>
+      <p>Production-grade multi-agent systems built on the ROSTR framework. Phase-aware orchestration with persistent knowledge.</p>
+    </div>
+  </header>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Framework</div>
+      <div class="rostr-feature">
+        <div class="rostr-badge">Published Research</div>
+        <h3>ROSTR Framework</h3>
+        <p>A unified architecture for production-grade multi-agent systems. PAL (Prompt Abstraction Layer), RAG DAL (Dynamic Acquisition), NPAO (phase-aware orchestration), and Rostr Hub (persistent state). Published with DOI on Zenodo.</p>
+        <a href="https://zenodo.org/records/19550414" class="rostr-cta">Read the paper →</a>
+        <div class="rostr-components">
+          <div class="rostr-comp"><div class="rostr-comp-code">PAL</div><div class="rostr-comp-label">Intent Compiler</div></div>
+          <div class="rostr-comp"><div class="rostr-comp-code">RAG DAL</div><div class="rostr-comp-label">Knowledge Layer</div></div>
+          <div class="rostr-comp"><div class="rostr-comp-code">NPAO</div><div class="rostr-comp-label">Orchestration</div></div>
+          <div class="rostr-comp"><div class="rostr-comp-code">Hub</div><div class="rostr-comp-label">Persistent State</div></div>
+        </div>
+      </div>
+
+      <div class="section-label">Agent Team</div>
+      <h2>Specialized <em>roles.</em></h2>
+      <p>Each agent has a defined scope, toolset, and phase. They collaborate through the Rostr Hub, compounding knowledge across sessions.</p>
+      
+      <div class="agents-grid">
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">🎯</div>
+            <div><h4>Master Orchestrator</h4><div>Phase-aware routing</div></div>
+          </div>
+          <p>Routes tasks to the right agent based on 5D phase taxonomy. Maintains session state and coordinates multi-agent workflows.</p>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">💰</div>
+            <div><h4>Lead Qual Agent</h4><div>GTM operations</div></div>
+          </div>
+          <p>Hybrid signal detection. LLM extracts context, deterministic rules apply ICP scoring. Full audit trail for every decision.</p>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">✍️</div>
+            <div><h4>Content Agent</h4><div>Multi-format generation</div></div>
+          </div>
+          <p>Video generation, image synthesis, audio, copywriting. Integrates HyperFrames, FAL, TTS, and PAL for consistent output.</p>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">🔍</div>
+            <div><h4>Research Agent</h4><div>RAG DAL integration</div></div>
+          </div>
+          <p>Multi-pass retrieval with tiered credibility scoring. From arXiv to community sources with confidence metrics.</p>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">📊</div>
+            <div><h4>Analytics Agent</h4><div>Data processing</div></div>
+          </div>
+          <p>Stream processing, metric calculation, anomaly detection. Works with real-time and batch data sources.</p>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-header">
+            <div class="agent-avatar">🎨</div>
+            <div><h4>Creative Agent</h4><div>Design assets</div></div>
+          </div>
+          <p>Logo generation, UI mockups, brand collateral. Exports production-ready assets in multiple formats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Patrick Diamitani</div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="https://github.com/diamitani">GitHub</a>
+        <a href="mailto:patrick.diamitani@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
